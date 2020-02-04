@@ -4,6 +4,7 @@ import './css/app.css';
 
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Button from 'react-bootstrap/Button';
+import Image from 'react-bootstrap/Image';
 import SchoolImage from './img/school.png';
 
 export default function App() {
@@ -18,7 +19,7 @@ export default function App() {
           <Button href="/app/reviews" variant="primary">Get Started</Button>
         </p>
       </Jumbotron>
-      <img src={SchoolImage} alt="School" />
+      <Image src={SchoolImage} alt="School" fluid />
     </div>
   );
 }
