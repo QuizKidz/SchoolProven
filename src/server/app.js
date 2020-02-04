@@ -2,6 +2,7 @@
 const express = require('express');
 const path = require('path');
 const handlebars = require('express-handlebars');
+const route = require('./js/route');
 
 /* Import routes */
 const reviews = require('./routes/reviews');
@@ -18,7 +19,7 @@ app.engine('handlebars', handlebars());
 app.set('view engine', 'handlebars');
 
 /* Set routes */
-app.get('/reviews', reviews.view);
+app.get(route.create('/reviews'), reviews.view);
 
 // Start listening on the specified port, or 8080 for development
 app.listen(process.env.PORT || 8080, () => console.log(`Listening on port ${process.env.PORT || 8080}!`));

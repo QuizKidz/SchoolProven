@@ -15,7 +15,7 @@ export default function App() {
           Research your classes with confidence!
         </p>
         <p>
-          <Button variant="primary">Get Started</Button>
+          <Button href="/app/reviews" variant="primary">Get Started</Button>
         </p>
       </Jumbotron>
       <img src={SchoolImage} alt="School" />
