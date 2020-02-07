@@ -10,13 +10,17 @@ export default function ClassStats(props) {
     <Card className="ClassStats">
       <Card.Body>
         <Card.Title>
-          Average Grade:
+          <span className="ClassStats-stat">{avgGrade}</span>
           {'  '}
-          {avgGrade}
+          Average Grade
         </Card.Title>
         <Card.Title>
-          {percentRecommend}
-          % recommend this class
+          <span className="ClassStats-stat">
+            {percentRecommend}
+            %
+          </span>
+          {' '}
+          recommend this class
         </Card.Title>
       </Card.Body>
     </Card>

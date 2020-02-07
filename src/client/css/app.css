@@ -1,10 +1,10 @@
-h1 {
-  color: navy;
-}
-
 body {
   text-align: center;
   margin: auto;
+}
+
+.SchoolProven-logo {
+  margin-right: 12px;
 }
 
 .Reviews {
@@ -32,6 +32,12 @@ body {
   margin: 24px 0;
 }
 
+.ClassStats-stat {
+  color: #149650;
+  font-size: 32px;
+  margin-right: 12px;
+}
+
 .ReviewBreakdown {
   margin: 24px 0;
 }
@@ -47,6 +53,7 @@ body {
 }
 
 .ReviewCard-reviewer-icon {
+  color: #149650;
   font-size: 84px;
   margin: 12px 0;
   justify-content: center;
