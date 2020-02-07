@@ -89,8 +89,6 @@
 
 .ReviewCard-review-react {
   display: flex;
-  position: absolute;
-  bottom: 0;
 }
 
 .ReviewCard-review-react-likes {
@@ -103,4 +101,19 @@
 
 .ReviewCard-reviewer-info .card-subtitle {
   margin: 3px 0;
+}
+
+.ReviewCard-comment-toggle {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right: 12px;
+}
+
+.ReviewCard-comment {
+  margin: 12px 0;
+}
+
+.ReviewCard-comment:last-child {
+  margin-bottom: 60px;
 }
