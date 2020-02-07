@@ -65,7 +65,7 @@ export default function ReviewCard(props) {
       >
         {commentsOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}
         {' '}
-        3 Comments
+        3
       </Accordion.Toggle>
       <Accordion.Collapse eventKey="0">
         <>
