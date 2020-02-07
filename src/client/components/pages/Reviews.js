@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Container from 'react-bootstrap/Container';
+import NavBar from '../shared/NavBar';
 import ReviewPageHeader from '../reviews/ReviewPageHeader';
 import StarRatings from '../shared/StarRatings';
 import ClassStats from '../reviews/ClassStats';
@@ -34,20 +35,23 @@ export default function Reviews() {
   ];
 
   return (
-    <Container className="Reviews">
-      <ReviewPageHeader
-        professorName="Scott Klemmer"
-        classTitle="Interaction Design"
-        className="COGS 120/CSE 170"
-      />
-      <StarRatings rating={4.5} stat="(100)" />
-      <ClassStats avgGrade="A" percentRecommend={89} />
-      <ReviewBreakdown ratingBreakdowns={['70%', '11%', '8%', '4%', '7%']} />
-      <h5>Reviews</h5>
-      {
-        // eslint-disable-next-line react/no-array-index-key
-        reviews.map((review, i) => <ReviewCard key={i} {...review} />)
-      }
-    </Container>
+    <>
+      <NavBar />
+      <Container className="Reviews">
+        <ReviewPageHeader
+          professorName="Scott Klemmer"
+          classTitle="Interaction Design"
+          className="COGS 120/CSE 170"
+        />
+        <StarRatings rating={4.5} stat="(100)" />
+        <ClassStats avgGrade="A" percentRecommend={89} />
+        <ReviewBreakdown ratingBreakdowns={['70%', '11%', '8%', '4%', '7%']} />
+        <h5>Reviews</h5>
+        {
+          // eslint-disable-next-line react/no-array-index-key
+          reviews.map((review, i) => <ReviewCard key={i} {...review} />)
+        }
+      </Container>
+    </>
   );
 }
