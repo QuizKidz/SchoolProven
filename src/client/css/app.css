@@ -6,3 +6,32 @@ body {
   text-align: center;
   margin: auto;
 }
+
+.Reviews {
+  text-align: left;
+}
+
+.ReviewPageHeader {
+  padding: 24px 0;
+}
+
+.StarRatings {
+  color: #F0E04B;
+  display: flex;
+  font-size: 32px;
+  padding: 4px 0;
+}
+
+.StarRatings-stat {
+  color: black;
+  font-size: 24px;
+  margin-left: 16px;
+}
+
+.ClassStats {
+  margin: 24px 0;
+}
+
+.ReviewBreakdown {
+  margin: 24px 0;
+}
