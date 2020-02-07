@@ -4,42 +4,44 @@ import PropTypes from 'prop-types';
 import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa';
 
 export default function StarRatings(props) {
-  const { rating, totalCount } = props;
+  const { rating, stat } = props;
 
   const renderStars = () => {
     const stars = [];
-    for (let i = 0; i < Math.floor(rating); i += 1) {
-      stars.push(<FaStar />);
+
+    let i;
+    for (i = 0; i < Math.floor(rating); i += 1) {
+      stars.push(<FaStar key={i} />);
     }
 
     if (rating % 1 >= 0.5) {
-      stars.push(<FaStarHalfAlt />);
+      stars.push(<FaStarHalfAlt key={i} />);
+      i += 1;
     }
 
     while (stars.length < 5) {
-      stars.push(<FaRegStar />);
+      stars.push(<FaRegStar key={i} />);
+      i += 1;
     }
 
     return stars;
   };
 
   return (
-    <div className="StarRatings">
+    <span className="StarRatings">
       {renderStars()}
-      <h1>
-        (
-        {totalCount}
-        )
-      </h1>
-    </div>
+      <span className="StarRatings-stat">
+        {stat || null}
+      </span>
+    </span>
   );
 }
 
 StarRatings.propTypes = {
   rating: PropTypes.number.isRequired,
-  totalCount: PropTypes.number,
+  stat: PropTypes.string,
 };
 
 StarRatings.defaultProps = {
-  totalCount: -1,
+  stat: '',
 };
