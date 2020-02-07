@@ -35,3 +35,45 @@ body {
 .ReviewBreakdown {
   margin: 24px 0;
 }
+
+.ReviewCard {
+  margin: 24px 0;
+}
+
+.ReviewCard-reviewer {
+  flex-grow: 0.5;
+  /* margin: 3px; */
+  text-align: center;
+}
+
+.ReviewCard-reviewer-icon {
+  font-size: 84px;
+  margin: 12px 0;
+  justify-content: center;
+}
+
+.ReviewCard-reviewer-info {
+  flex-direction: column;
+}
+
+.ReviewCard-review-body {
+  margin: 12px 0 48px 0;
+}
+
+.ReviewCard-review-react {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+}
+
+.ReviewCard-review-react-likes {
+  margin: 0 6px;
+}
+
+.ReviewCard-review-react-dislikes {
+  margin: 0 6px;
+}
+
+.ReviewCard-reviewer-info .card-subtitle {
+  margin: 3px 0;
+}
