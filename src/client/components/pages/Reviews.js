@@ -1,7 +1,9 @@
 import React from 'react';
 
 import Container from 'react-bootstrap/Container';
+
 import NavBar from '../shared/NavBar';
+import BackButton from '../shared/BackButton';
 import ReviewPageHeader from '../reviews/ReviewPageHeader';
 import StarRatings from '../shared/StarRatings';
 import ClassStats from '../reviews/ClassStats';
@@ -38,6 +40,7 @@ export default function Reviews() {
     <>
       <NavBar />
       <Container className="Reviews">
+        <BackButton to="/search" />
         <ReviewPageHeader
           professorName="Scott Klemmer"
           classTitle="Interaction Design"

@@ -2,6 +2,12 @@
   margin-right: 12px;
 }
 
+.BackButton {
+  color: black;
+  font-size: x-large;
+  text-decoration: none;
+}
+
 .Home {
   text-align: center;
   margin: auto;
