@@ -8,7 +8,7 @@ import SchoolImage from '../../img/school.png';
 
 export default function Home() {
   return (
-    <div>
+    <div className="Home">
       <Jumbotron>
         <h1>Welcome to SchoolProven</h1>
         <p>
