@@ -1,0 +1,12 @@
+[
+  {
+    "id": "COGS120",
+    "professorName": "Scott Klemmer",
+    "classTitle": "Interaction Design",
+    "classCode": "COGS 120/CSE 170",
+    "classRating": 4,
+    "avgGrade": "A",
+    "percentRecommend": 89,
+    "tags": ["Interesting Course", "Thought Provoking", "Smart Professor"]
+  }
+]
