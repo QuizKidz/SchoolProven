@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Link } from 'react-router-dom';
 import Jumbotron from 'react-bootstrap/Jumbotron';
@@ -12,7 +12,11 @@ import { FaSearch, FaPenFancy } from 'react-icons/fa';
 
 import Logo from '../shared/Logo';
 
+import LoginModal from '../modals/LoginModal';
+
 export default function Home() {
+  const [loginShow, setLoginShow] = useState(false);
+
   return (
     <div className="Home">
       <Jumbotron>
@@ -63,10 +67,10 @@ export default function Home() {
           <Button variant="outline-primary" size="lg" block>Sign up</Button>
         </Link>
         <br />
-        <Link to="/signup">
-          <Button variant="primary" size="lg" block>Log in</Button>
-        </Link>
+        <Button variant="primary" size="lg" onClick={() => setLoginShow(true)} block>Log in</Button>
       </Container>
+
+      <LoginModal show={loginShow} onHide={() => setLoginShow(false)} />
     </div>
   );
 }

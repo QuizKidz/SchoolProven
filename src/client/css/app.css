@@ -11,6 +11,7 @@ nav .SchoolProven-logo {
   margin-right: 12px;
 }
 
+/* Bootstrap Button Customization */
 .btn-primary {
   background-color: #149650;
   border-color: #149650;
@@ -22,6 +23,18 @@ nav .SchoolProven-logo {
   border-color: #128347;
 }
 
+.btn-primary:not(:disabled):not(.disabled):active {
+  color: #fff;
+  background-color: #0d6335;
+  border-color: #0d6335;
+}
+
+.btn-primary:focus {
+  color: #fff;
+  background-color: #0d6335;
+  border-color: #0d6335;
+}
+
 .btn-outline-primary {
   border-color: #149650;
   color: #149650;
@@ -31,6 +44,18 @@ nav .SchoolProven-logo {
   color: #fff;
   background-color: #128347;
   border-color: #128347;
+}
+
+.btn-outline-primary:not(:disabled):not(.disabled):active {
+  color: #fff;
+  background-color: #0d6335;
+  border-color: #0d6335;
+}
+
+.btn-outline-primary:focus {
+  color: #fff;
+  background-color: #0d6335;
+  border-color: #0d6335;
 }
 
 .BackButton {
