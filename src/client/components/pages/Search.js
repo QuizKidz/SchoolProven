@@ -4,7 +4,9 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
 import { FaBook } from 'react-icons/fa';
+
 import NavBar from '../shared/NavBar';
+import BackButton from '../shared/BackButton';
 
 import SearchResultCard from '../search/SearchResultCard';
 
@@ -30,6 +32,7 @@ export default function Search() {
     <>
       <NavBar />
       <Container className="Search">
+        <BackButton to="/" />
         <Form className="SearchBar">
           <Form.Group>
             <Form.Control type="text" placeholder="Search classes" onKeyDown={handleKeydown} />
