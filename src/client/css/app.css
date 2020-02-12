@@ -1,4 +1,13 @@
-.SchoolProven-logo {
+a {
+  color: black;
+}
+
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+nav .SchoolProven-logo {
   margin-right: 12px;
 }
 
@@ -8,14 +17,48 @@
   text-decoration: none;
 }
 
-.Home {
+.Home .jumbotron {
   text-align: center;
   margin: auto;
 }
 
-.Search a {
-  color: black;
-  text-decoration: none;
+.Home-content {
+  margin: 48px auto;
+}
+
+.Home-content-column {
+  margin: 24px auto;
+}
+
+.Home-content-button {
+  height: 100%;
+  transition: box-shadow 0.2s;
+}
+
+.Home-content-button:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.Home-background {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+#shape1 {
+  background: #01F973;
+  height: 100%;
+}
+
+#shape2 {
+  background: #3ECE80;
+  height: 40%;
+}
+
+#shape3 {
+  background: #149650;
+  height: 30%;
 }
 
 .SearchBar {
