@@ -63,11 +63,11 @@ export default function Home() {
         <br />
         <br />
 
-        <Link to="/signup">
-          <Button variant="outline-primary" size="lg" block>Sign up</Button>
-        </Link>
+        <Button variant="outline-primary" size="lg" onClick={() => setLoginShow(true)} block>Log in</Button>
         <br />
-        <Button variant="primary" size="lg" onClick={() => setLoginShow(true)} block>Log in</Button>
+        <Link to="/signup">
+          <Button variant="primary" size="lg" block>Sign up</Button>
+        </Link>
       </Container>
 
       <LoginModal show={loginShow} onHide={() => setLoginShow(false)} />
