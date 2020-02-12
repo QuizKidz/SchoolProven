@@ -11,6 +11,28 @@ nav .SchoolProven-logo {
   margin-right: 12px;
 }
 
+.btn-primary {
+  background-color: #149650;
+  border-color: #149650;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #128347;
+  border-color: #128347;
+}
+
+.btn-outline-primary {
+  border-color: #149650;
+  color: #149650;
+}
+
+.btn-outline-primary:hover {
+  color: #fff;
+  background-color: #128347;
+  border-color: #128347;
+}
+
 .BackButton {
   color: black;
   font-size: x-large;
@@ -23,7 +45,7 @@ nav .SchoolProven-logo {
 }
 
 .Home-content {
-  margin: 48px auto;
+  margin: 24px auto;
 }
 
 .Home-content-column {
@@ -59,6 +81,11 @@ nav .SchoolProven-logo {
 #shape3 {
   background: #149650;
   height: 30%;
+}
+
+.Signup-form {
+  margin: 48px auto;
+  padding: 24px;
 }
 
 .SearchBar {

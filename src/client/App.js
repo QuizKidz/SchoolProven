@@ -6,10 +6,14 @@ import { Switch, Route } from 'react-router-dom';
 import Home from './components/pages/Home';
 import Reviews from './components/pages/Reviews';
 import Search from './components/pages/Search';
+import Signup from './components/pages/Signup';
 
 export default function App() {
   return (
     <Switch>
+      <Route path="/signup">
+        <Signup />
+      </Route>
       <Route path="/search">
         <Search />
       </Route>

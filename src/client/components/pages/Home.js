@@ -6,6 +6,7 @@ import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
 
 import { FaSearch, FaPenFancy } from 'react-icons/fa';
 
@@ -54,15 +55,18 @@ export default function Home() {
             </Link>
           </Col>
         </Row>
-      </Container>
 
-      {/* <Link to="/search">
-        <Button>Search</Button>
-      </Link>
-      <Button variant="primary">Write a Review</Button> */}
-      {/* <div className="Home-background" id="shape1" />
-      <div className="Home-background" id="shape2" />
-      <div className="Home-background" id="shape3" /> */}
+        <br />
+        <br />
+
+        <Link to="/signup">
+          <Button variant="outline-primary" size="lg" block>Sign up</Button>
+        </Link>
+        <br />
+        <Link to="/signup">
+          <Button variant="primary" size="lg" block>Log in</Button>
+        </Link>
+      </Container>
     </div>
   );
 }
