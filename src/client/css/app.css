@@ -23,6 +23,12 @@ nav .SchoolProven-logo {
   border-color: #128347;
 }
 
+.btn-primary:not(:disabled):not(.disabled).active {
+  color: #fff;
+  background-color: #0d6335;
+  border-color: #0d6335;
+}
+
 .btn-primary:not(:disabled):not(.disabled):active {
   color: #fff;
   background-color: #0d6335;
@@ -136,6 +142,12 @@ nav .SchoolProven-logo {
   padding: 24px 0;
 }
 
+.ReviewPageHeader-icon {
+  color: #7a7b7c;
+  margin: 0 12px;
+  width: 24px;
+}
+
 .StarRatings {
   color: #F0E04B;
   display: flex;
@@ -217,4 +229,22 @@ nav .SchoolProven-logo {
 
 .ReviewCard-comment:last-child {
   margin-bottom: 60px;
+}
+
+.WriteReview-header {
+  color: #0d6335;
+  margin: 24px 0;
+}
+
+.WriteReview-class-header {
+  display: flex;
+  align-items: center;
+}
+
+.WriteReview-section{
+  margin: 48px 0;
+}
+
+.WriteReview-section-title{
+  color: #7a7b7c;
 }

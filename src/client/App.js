@@ -7,10 +7,14 @@ import Home from './components/pages/Home';
 import Reviews from './components/pages/Reviews';
 import Search from './components/pages/Search';
 import Signup from './components/pages/Signup';
+import WriteReview from './components/pages/WriteReview';
 
 export default function App() {
   return (
     <Switch>
+      <Route path="/write">
+        <WriteReview />
+      </Route>
       <Route path="/signup">
         <Signup />
       </Route>

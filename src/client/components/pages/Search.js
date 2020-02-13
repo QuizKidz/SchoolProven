@@ -26,8 +26,6 @@ export default function Search() {
     }
   };
 
-  const resultClass = classes[0];
-
   return (
     <>
       <NavBar />
@@ -38,12 +36,14 @@ export default function Search() {
             <Form.Control type="text" placeholder="Search classes" onKeyDown={handleKeydown} />
           </Form.Group>
         </Form>
-        {isVisible ? (
-          <SearchResultCard
-            {...resultClass}
-            linkTo="/reviews"
-          />
-        ) : <EmptyReviewCard />}
+        {isVisible
+          ? classes.map(c => (
+            <SearchResultCard
+              {...c}
+              linkTo="/reviews"
+            />
+          ))
+          : <EmptyReviewCard />}
       </Container>
     </>
   );

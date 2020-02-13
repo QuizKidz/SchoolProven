@@ -45,7 +45,7 @@ export default function Home() {
           </Col>
 
           <Col sm className="Home-content-column">
-            <Link to="/search">
+            <Link to="/write">
               <Card className="Home-content-button">
                 <Card.Body>
                   <Card.Title>
