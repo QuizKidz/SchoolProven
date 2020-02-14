@@ -236,6 +236,24 @@ nav .SchoolProven-logo {
   margin-bottom: 60px;
 }
 
+.Questions-content {
+  margin: 48px auto;
+}
+
+.Questions-unanswered {
+  background: #FFE6E6;
+  color: #900;
+}
+
+.Questions-answer-input-header {
+  color: #0d6335;
+  margin: 18px auto;
+}
+
+.Questions-answer-input {
+  margin-bottom: 12px;
+}
+
 .WriteReview-header {
   color: #0d6335;
   margin: 24px 0;

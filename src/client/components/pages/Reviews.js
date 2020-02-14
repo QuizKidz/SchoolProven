@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+import { Redirect } from 'react-router-dom';
 
 import Container from 'react-bootstrap/Container';
+import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
+import ToggleButton from 'react-bootstrap/ToggleButton';
 
 import NavBar from '../shared/NavBar';
 import BackButton from '../shared/BackButton';
@@ -14,6 +18,8 @@ import reviews from '../../data/reviews.json';
 import classes from '../../data/classes.json';
 
 export default function Reviews() {
+  const [isQuestionsActive, setQuestionsActive] = useState(false);
+
   const currentClass = classes[0];
   const {
     professorName,
@@ -24,11 +30,32 @@ export default function Reviews() {
     percentRecommend
   } = currentClass;
 
+  const handleToggleChange = (value) => {
+    setQuestionsActive(value === 1);
+  };
+
+  const renderToggle = () => (
+    <div className="Reviews-toggle">
+      <ToggleButtonGroup
+        type="radio"
+        name="PageToggle"
+        defaultValue={0}
+        size="lg"
+        onChange={handleToggleChange}
+      >
+        <ToggleButton value={0} variant="light">Reviews</ToggleButton>
+        <ToggleButton value={1} variant="light">Q & A</ToggleButton>
+      </ToggleButtonGroup>
+    </div>
+  );
+
   return (
     <>
       <NavBar />
       <Container className="Reviews">
         <BackButton to="/search" />
+        <br />
+        {renderToggle()}
         <ReviewPageHeader
           professorName={professorName}
           classTitle={classTitle}
@@ -42,6 +69,8 @@ export default function Reviews() {
           reviews.map(review => <ReviewCard key={review.id} {...review} />)
         }
       </Container>
+
+      {isQuestionsActive ? <Redirect to="/questions" /> : null}
     </>
   );
 }
