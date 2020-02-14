@@ -7,6 +7,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Accordion from 'react-bootstrap/Accordion';
 import Badge from 'react-bootstrap/Badge';
+import Modal from 'react-bootstrap/Modal';
 
 import {
   FaUser, FaUserGraduate, FaThumbsUp, FaThumbsDown
@@ -17,12 +18,13 @@ import { MdVerifiedUser } from 'react-icons/md';
 import StarRatings from './StarRatings';
 
 export default function ReviewCard(props) {
+  const [show, setShow] = useState(false);
+  const [commentsOpen, setCommentsOpen] = useState(false);
+
   const {
     rating, review, reviewer, numLikes, numDislikes
   } = props;
   const { major, year, numReviews } = reviewer;
-
-  const [commentsOpen, setCommentsOpen] = useState(false);
 
   const renderEmptyReviewerInfo = () => (
     <Col className="ReviewCard-reviewer">
@@ -48,7 +50,7 @@ export default function ReviewCard(props) {
           </Card.Subtitle>
         </Row>
         <Row className="ReviewCard-reviewer-badge">
-          <Badge pill variant="success">
+          <Badge pill variant="success" onClick={() => setShow(true)}>
             <MdVerifiedUser />
             {' '}
             Proven
@@ -106,17 +108,33 @@ export default function ReviewCard(props) {
     </Col>
   );
 
+  const handleClose = () => { setShow(false); };
+
+  const renderBadgeModal = () => (
+    <Modal show={show} onHide={handleClose} centered>
+      <Modal.Header closeButton>
+      </Modal.Header>
+      <Modal.Body>
+        This badge indicates that this review was submitted
+        by a user with a verified university email.
+      </Modal.Body>
+    </Modal>
+  );
+
   return (
-    <Accordion className="ReviewCard">
-      <Card>
-        <Card.Body>
-          <Row>
-            {renderReviewerInfo()}
-            {renderReview()}
-          </Row>
-        </Card.Body>
-      </Card>
-    </Accordion>
+    <>
+      <Accordion className="ReviewCard">
+        <Card>
+          <Card.Body>
+            <Row>
+              {renderReviewerInfo()}
+              {renderReview()}
+            </Row>
+          </Card.Body>
+        </Card>
+      </Accordion>
+      {renderBadgeModal()}
+    </>
   );
 }
 
