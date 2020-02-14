@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import { Link } from 'react-router-dom';
+
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
@@ -60,7 +61,6 @@ export default function Home() {
           </Col>
         </Row>
 
-        <br />
         <br />
 
         <Button variant="outline-primary" size="lg" onClick={() => setLoginShow(true)} block>Log in</Button>

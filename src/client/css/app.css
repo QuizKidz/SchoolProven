@@ -76,11 +76,11 @@ nav .SchoolProven-logo {
 }
 
 .Home-content {
-  margin: 24px auto;
+  margin: 12px auto;
 }
 
 .Home-content-column {
-  margin: 24px auto;
+  margin: 12px auto;
 }
 
 .Home-content-button {
@@ -136,6 +136,11 @@ nav .SchoolProven-logo {
 
 .Reviews {
   text-align: left;
+}
+
+.Reviews-toggle {
+  display: flex;
+  justify-content: center;
 }
 
 .ReviewPageHeader {
