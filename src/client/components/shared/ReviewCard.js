@@ -7,7 +7,9 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Accordion from 'react-bootstrap/Accordion';
 
-import { FaUserGraduate, FaThumbsUp, FaThumbsDown } from 'react-icons/fa';
+import {
+  FaUser, FaUserGraduate, FaThumbsUp, FaThumbsDown
+} from 'react-icons/fa';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 
 import StarRatings from './StarRatings';
@@ -20,24 +22,31 @@ export default function ReviewCard(props) {
 
   const [commentsOpen, setCommentsOpen] = useState(false);
 
-  const renderReviewerInfo = () => (
+  const renderEmptyReviewerInfo = () => (
     <Col className="ReviewCard-reviewer">
-      <Row className="ReviewCard-reviewer-icon"><FaUserGraduate /></Row>
-      <Row className="ReviewCard-reviewer-info">
-        <Card.Subtitle>{major}</Card.Subtitle>
-        <Card.Subtitle>
-          {year}
-          {' '}
-          year
-        </Card.Subtitle>
-        <Card.Subtitle>
-          {numReviews}
-          {' '}
-          reviews
-        </Card.Subtitle>
-      </Row>
+      <Row className="ReviewCard-reviewer-icon-anon"><FaUser /></Row>
     </Col>
   );
+
+  const renderReviewerInfo = () => (Object.keys(reviewer).length === 0 ? renderEmptyReviewerInfo()
+    : (
+      <Col className="ReviewCard-reviewer">
+        <Row className="ReviewCard-reviewer-icon"><FaUserGraduate /></Row>
+        <Row className="ReviewCard-reviewer-info">
+          <Card.Subtitle>{major}</Card.Subtitle>
+          <Card.Subtitle>
+            {year}
+            {' '}
+            year
+          </Card.Subtitle>
+          <Card.Subtitle>
+            {numReviews}
+            {' '}
+            reviews
+          </Card.Subtitle>
+        </Row>
+      </Col>
+    ));
 
   const renderReviewReacts = () => (
     <div className="ReviewCard-review-react">

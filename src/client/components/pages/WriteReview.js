@@ -20,13 +20,13 @@ import reviews from '../../data/reviews.json';
 
 export default function WriteReview() {
   const [hasSubmitted, changeHasSubmitted] = useState(false);
+  const [reviewRating, setReviewRating] = useState(0);
 
   const currentClass = classes[0];
   const {
     professorName,
     classTitle,
     classCode,
-    classRating,
   } = currentClass;
 
   const renderHeaders = () => (
@@ -45,7 +45,7 @@ export default function WriteReview() {
   const renderRating = () => (
     <div className="WriteReview-section">
       <h4 className="WriteReview-section-title">Rating</h4>
-      <StarRatings rating={classRating} stat="" />
+      <StarRatings large rating={reviewRating} onClick={rating => () => setReviewRating(rating)} />
     </div>
   );
 
@@ -94,15 +94,11 @@ export default function WriteReview() {
       {
         id: reviews.length + 1,
         classId: 'COGS120',
-        rating: 4,
+        rating: reviewRating,
         review: form.querySelector('#review').value,
         numLikes: 0,
         numDislikes: 0,
-        reviewer: {
-          major: 'Computer Science',
-          year: '4th',
-          numReviews: 12
-        }
+        reviewer: {}
       }
     );
 

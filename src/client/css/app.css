@@ -160,6 +160,10 @@ nav .SchoolProven-logo {
   padding: 4px 0;
 }
 
+.large {
+  font-size: 72px;
+}
+
 .StarRatings-stat {
   color: black;
   font-size: 24px;
@@ -188,6 +192,13 @@ nav .SchoolProven-logo {
   flex-grow: 0.5;
   /* margin: 3px; */
   text-align: center;
+}
+
+.ReviewCard-reviewer-icon-anon {
+  color: #707070;
+  font-size: 84px;
+  margin: 12px 0;
+  justify-content: center;
 }
 
 .ReviewCard-reviewer-icon {
