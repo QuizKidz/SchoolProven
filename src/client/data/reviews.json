@@ -24,5 +24,14 @@
       "year": "4th",
       "numReviews": 12
     }
+  },
+  {
+    "id": 3,
+    "classId": "COGS120",
+    "rating": 3,
+    "review": "The class was alright. Pick your project carefully.",
+    "numLikes": 1,
+    "numDislikes": 1,
+    "reviewer": {}
   }
 ]

@@ -6,11 +6,13 @@ import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Accordion from 'react-bootstrap/Accordion';
+import Badge from 'react-bootstrap/Badge';
 
 import {
   FaUser, FaUserGraduate, FaThumbsUp, FaThumbsDown
 } from 'react-icons/fa';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
+import { MdVerifiedUser } from 'react-icons/md';
 
 import StarRatings from './StarRatings';
 
@@ -44,6 +46,13 @@ export default function ReviewCard(props) {
             {' '}
             reviews
           </Card.Subtitle>
+        </Row>
+        <Row className="ReviewCard-reviewer-badge">
+          <Badge pill variant="success">
+            <MdVerifiedUser />
+            {' '}
+            Proven
+          </Badge>
         </Row>
       </Col>
     ));

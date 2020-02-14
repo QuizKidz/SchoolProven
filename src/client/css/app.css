@@ -212,6 +212,11 @@ nav .SchoolProven-logo {
   flex-direction: column;
 }
 
+.ReviewCard-reviewer-badge {
+  justify-content: center;
+  margin-top: 12px;
+}
+
 .ReviewCard-review-body {
   margin: 12px 0 48px 0;
 }
