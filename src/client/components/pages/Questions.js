@@ -136,7 +136,7 @@ export default function Questions() {
   return (
     <>
       <NavBar />
-      <Container className="Reviews">
+      <Container className="Questions">
         <BackButton to="/search" />
         <br />
         {renderToggle()}
