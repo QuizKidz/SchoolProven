@@ -13,6 +13,6 @@
   },
   {
     "question": "Is there a final exam?",
-    "answers": ["No, there is no final exam despite what it says on WebReg. However, there are quizzes.", "no"]
+    "answers": []
   }
 ]
