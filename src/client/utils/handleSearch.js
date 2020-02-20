@@ -15,7 +15,7 @@ export default function handleSearch(event, data, setSearchResults, setNoResults
   const results = data.filter((item) => {
     let result = false;
     fieldsToSearch.forEach((field) => {
-      result = item[field].includes(query) ? true : result;
+      result = item[field].toLowerCase().includes(query) ? true : result;
     });
     return result;
   });
