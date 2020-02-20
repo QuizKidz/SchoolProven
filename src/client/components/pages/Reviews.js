@@ -36,7 +36,7 @@ export default function Reviews() {
     percentRecommend
   } = currentClass;
 
-  const handleSearchKeydown = (e) => {
+  const handleSearchInput = (e) => {
     handleSearch(e, reviews, reviews, setSearchResults, setNoResults, ['review']);
   };
 
@@ -79,7 +79,7 @@ export default function Reviews() {
           <SearchBar
             className="Reviews-SearchBar"
             placeholder="Search Reviews"
-            onKeyDown={handleSearchKeydown}
+            onInput={handleSearchInput}
           />
         </div>
         {

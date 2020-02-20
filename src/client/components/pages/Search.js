@@ -20,7 +20,7 @@ export default function Search() {
   const [searchResults, setSearchResults] = useState([]);
   const [noResults, setNoResults] = useState(false);
 
-  const handleSearchKeydown = (e) => {
+  const handleSearchInput = (e) => {
     handleSearch(e, classes, [], setSearchResults, setNoResults,
       ['professorName', 'className', 'classCode']);
   };
@@ -33,7 +33,7 @@ export default function Search() {
         <SearchBar
           className="Search-SearchBar"
           placeholder="Search by Class or Professor"
-          onKeyDown={handleSearchKeydown}
+          onInput={handleSearchInput}
         />
         {searchResults.length > 0
           ? searchResults.map(course => (
