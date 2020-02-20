@@ -3,15 +3,17 @@ import React, { useState } from 'react';
 
 import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
-import { FaBook, FaTimes } from 'react-icons/fa';
+import { FaBook } from 'react-icons/fa';
 
 import NavBar from '../shared/NavBar';
 import BackButton from '../shared/BackButton';
 import SearchBar from '../shared/SearchBar';
+import NoResultsCard from '../shared/NoResultsCard';
 
 import SearchResultCard from '../search/SearchResultCard';
 
 import handleSearch from '../../utils/handleSearch';
+
 import classes from '../../data/classes.json';
 
 export default function Search() {
@@ -19,7 +21,7 @@ export default function Search() {
   const [noResults, setNoResults] = useState(false);
 
   const handleSearchKeydown = (e) => {
-    handleSearch(e, classes, setSearchResults, setNoResults,
+    handleSearch(e, classes, [], setSearchResults, setNoResults,
       ['professorName', 'className', 'classCode']);
   };
 
@@ -28,7 +30,11 @@ export default function Search() {
       <NavBar />
       <Container className="Search">
         <BackButton to="/" />
-        <SearchBar placeholder="Search by class or professor" onKeyDown={handleSearchKeydown} />
+        <SearchBar
+          className="Search-SearchBar"
+          placeholder="Search by Class or Professor"
+          onKeyDown={handleSearchKeydown}
+        />
         {searchResults.length > 0
           ? searchResults.map(course => (
             <SearchResultCard
@@ -50,17 +56,6 @@ function EmptySearchCard() {
     <Card bg="light" border="light">
       <Card.Body className="EmptySearchCard">
         <FaBook />
-      </Card.Body>
-    </Card>
-  );
-}
-
-function NoResultsCard() {
-  return (
-    <Card bg="light" border="light">
-      <Card.Body className="EmptySearchCard">
-        <h3>No results found.</h3>
-        <FaTimes />
       </Card.Body>
     </Card>
   );

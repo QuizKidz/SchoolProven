@@ -1,4 +1,11 @@
-export default function handleSearch(event, data, setSearchResults, setNoResults, fieldsToSearch) {
+export default function handleSearch(
+  event,
+  data,
+  defaultResults,
+  setSearchResults,
+  setNoResults,
+  fieldsToSearch
+) {
   const charEntered = event.key.length === 1 ? event.key : '';
   let query = event.target.value + charEntered;
 
@@ -7,7 +14,7 @@ export default function handleSearch(event, data, setSearchResults, setNoResults
   }
 
   if (query.length < 3) {
-    setSearchResults([]);
+    setSearchResults(defaultResults);
     setNoResults(false);
     return;
   }

@@ -7,10 +7,10 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import { FaSearch } from 'react-icons/fa';
 
 export default function SearchBar(props) {
-  const { placeholder, onKeyDown } = props;
+  const { className, placeholder, onKeyDown } = props;
 
   return (
-    <InputGroup className="SearchBar">
+    <InputGroup className={className}>
       <InputGroup.Prepend>
         <InputGroup.Text><FaSearch /></InputGroup.Text>
       </InputGroup.Prepend>
@@ -20,6 +20,11 @@ export default function SearchBar(props) {
 }
 
 SearchBar.propTypes = {
+  className: PropTypes.string,
   placeholder: PropTypes.string.isRequired,
   onKeyDown: PropTypes.func.isRequired,
+};
+
+SearchBar.defaultProps = {
+  className: 'SearchBar'
 };

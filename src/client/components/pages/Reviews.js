@@ -13,11 +13,17 @@ import StarRatings from '../shared/StarRatings';
 import ClassStats from '../reviews/ClassStats';
 import ReviewBreakdown from '../reviews/ReviewBreakdown';
 import ReviewCard from '../shared/ReviewCard';
+import SearchBar from '../shared/SearchBar';
+import NoResultsCard from '../shared/NoResultsCard';
+
+import handleSearch from '../../utils/handleSearch';
 
 import reviews from '../../data/reviews.json';
 import classes from '../../data/classes.json';
 
 export default function Reviews() {
+  const [searchResults, setSearchResults] = useState(reviews);
+  const [noResults, setNoResults] = useState(false);
   const [isQuestionsActive, setQuestionsActive] = useState(false);
 
   const currentClass = classes[0];
@@ -29,6 +35,10 @@ export default function Reviews() {
     avgGrade,
     percentRecommend
   } = currentClass;
+
+  const handleSearchKeydown = (e) => {
+    handleSearch(e, reviews, reviews, setSearchResults, setNoResults, ['review']);
+  };
 
   const handleToggleChange = (value) => {
     setQuestionsActive(value === 1);
@@ -64,9 +74,18 @@ export default function Reviews() {
         <StarRatings rating={classRating} stat="(100)" />
         <ClassStats avgGrade={avgGrade} percentRecommend={percentRecommend} />
         <ReviewBreakdown ratingBreakdowns={['70%', '11%', '8%', '4%', '7%']} />
-        <h5>Reviews</h5>
+        <div className="Reviews-header">
+          <h5>Reviews</h5>
+          <SearchBar
+            className="Reviews-SearchBar"
+            placeholder="Search Reviews"
+            onKeyDown={handleSearchKeydown}
+          />
+        </div>
         {
-          reviews.map(review => <ReviewCard key={review.id} {...review} />)
+          noResults
+            ? <NoResultsCard />
+            : searchResults.map(review => <ReviewCard key={review.id} {...review} />)
         }
       </Container>
 

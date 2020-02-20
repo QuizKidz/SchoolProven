@@ -119,7 +119,7 @@ nav .SchoolProven-logo {
   padding: 24px;
 }
 
-.SearchBar {
+.Search-SearchBar {
   margin: 48px 0;
 }
 
@@ -129,6 +129,10 @@ nav .SchoolProven-logo {
   align-items: center;
   font-size: 144px;
   color: lightgray;
+}
+
+.NoResultsCard {
+  margin: 24px 0 144px 0;
 }
 
 .schoolimg {
@@ -185,8 +189,21 @@ nav .SchoolProven-logo {
   margin: 24px 0;
 }
 
+.Reviews-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Reviews-SearchBar {
+  flex-basis: 50%;
+}
+
 .ReviewCard {
   margin: 24px 0;
+}
+
+.ReviewCard:last-child {
+  margin-bottom: 144px;
 }
 
 .ReviewCard-reviewer {
