@@ -5,7 +5,7 @@ import { FaUserTie } from 'react-icons/fa';
 import { MdClass, MdSubject } from 'react-icons/md';
 
 export default function ReviewPageHeader(props) {
-  const { professorName, classTitle, classCode } = props;
+  const { professorName, className, classCode } = props;
 
   return (
     <div className="ReviewPageHeader">
@@ -17,7 +17,7 @@ export default function ReviewPageHeader(props) {
       <h2>
         <MdClass className="ReviewPageHeader-icon" />
         {' '}
-        {classTitle}
+        {className}
       </h2>
       <h2>
         <MdSubject className="ReviewPageHeader-icon" />
@@ -30,6 +30,6 @@ export default function ReviewPageHeader(props) {
 
 ReviewPageHeader.propTypes = {
   professorName: PropTypes.string.isRequired,
-  classTitle: PropTypes.string.isRequired,
+  className: PropTypes.string.isRequired,
   classCode: PropTypes.string.isRequired,
 };

@@ -25,7 +25,7 @@ export default function WriteReview() {
   const currentClass = classes[0];
   const {
     professorName,
-    classTitle,
+    className,
     classCode,
   } = currentClass;
 
@@ -35,7 +35,7 @@ export default function WriteReview() {
       <Card className="WriteReview-class-header">
         <ReviewPageHeader
           professorName={professorName}
-          classTitle={classTitle}
+          className={className}
           classCode={classCode}
         />
       </Card>

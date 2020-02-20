@@ -12,7 +12,7 @@ import StarRatings from '../shared/StarRatings';
 export default function SearchResultCard(props) {
   const {
     professorName,
-    classTitle,
+    className,
     classCode,
     classRating,
     avgGrade,
@@ -30,7 +30,7 @@ export default function SearchResultCard(props) {
               <Row className="ReviewCard-reviewer-icon"><FaBook /></Row>
               <Row className="ReviewCard-reviewer-info">
                 <Card.Subtitle>{professorName}</Card.Subtitle>
-                <Card.Subtitle>{classTitle}</Card.Subtitle>
+                <Card.Subtitle>{className}</Card.Subtitle>
                 <Card.Subtitle>{classCode}</Card.Subtitle>
               </Row>
             </Col>
@@ -68,7 +68,7 @@ export default function SearchResultCard(props) {
 
 SearchResultCard.propTypes = {
   professorName: PropTypes.string.isRequired,
-  classTitle: PropTypes.string.isRequired,
+  className: PropTypes.string.isRequired,
   classCode: PropTypes.string.isRequired,
   classRating: PropTypes.number.isRequired,
   avgGrade: PropTypes.string.isRequired,

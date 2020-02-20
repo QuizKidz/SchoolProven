@@ -123,9 +123,10 @@ nav .SchoolProven-logo {
   margin: 48px 0;
 }
 
-.EmptyReviewCard {
+.EmptySearchCard {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   font-size: 144px;
   color: lightgray;
 }

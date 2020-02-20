@@ -23,7 +23,7 @@ export default function Reviews() {
   const currentClass = classes[0];
   const {
     professorName,
-    classTitle,
+    className,
     classCode,
     classRating,
     avgGrade,
@@ -58,7 +58,7 @@ export default function Reviews() {
         {renderToggle()}
         <ReviewPageHeader
           professorName={professorName}
-          classTitle={classTitle}
+          className={className}
           classCode={classCode}
         />
         <StarRatings rating={classRating} stat="(100)" />
