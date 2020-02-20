@@ -92,28 +92,6 @@ nav .SchoolProven-logo {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.Home-background {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  z-index: -1;
-}
-
-#shape1 {
-  background: #01F973;
-  height: 100%;
-}
-
-#shape2 {
-  background: #3ECE80;
-  height: 40%;
-}
-
-#shape3 {
-  background: #149650;
-  height: 30%;
-}
-
 .Signup-form {
   margin: 48px auto;
   padding: 24px;
@@ -133,10 +111,6 @@ nav .SchoolProven-logo {
 
 .NoResultsCard {
   margin: 24px 0 144px 0;
-}
-
-.schoolimg {
-  width: 300px;
 }
 
 .Reviews {
