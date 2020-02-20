@@ -11,6 +11,7 @@ import SearchBar from '../shared/SearchBar';
 
 import SearchResultCard from '../search/SearchResultCard';
 
+import handleSearch from '../../utils/handleSearch';
 import classes from '../../data/classes.json';
 
 export default function Search() {
@@ -18,35 +19,8 @@ export default function Search() {
   const [noResults, setNoResults] = useState(false);
 
   const handleSearchKeydown = (e) => {
-    const charEntered = e.key.length === 1 ? e.key : '';
-    let query = e.target.value + charEntered;
-
-    if (e.key === 'Backspace') {
-      query = query.slice(0, -1);
-    }
-
-    console.log(e.key);
-    console.log(query.length);
-
-    if (query.length < 3) {
-      setSearchResults([]);
-      setNoResults(false);
-      return;
-    }
-
-    const results = classes.filter((course) => {
-      const { professorName, className, classCode } = course;
-      return professorName.toLowerCase().includes(query.toLowerCase())
-        || className.toLowerCase().includes(query.toLowerCase())
-        || classCode.toLowerCase().includes(query.toLowerCase());
-    });
-
-    if (results.length > 0) {
-      setSearchResults(results);
-      setNoResults(false);
-    } else {
-      setNoResults(true);
-    }
+    handleSearch(e, classes, setSearchResults, setNoResults,
+      ['professorName', 'className', 'classCode']);
   };
 
   return (
