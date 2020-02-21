@@ -29,22 +29,18 @@ export default function Signup(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    setUser({
-      email,
-      password,
-      major,
-      year
-    });
-
-    setSubmitted(true);
-
-    users.push({
+    const newUser = {
       id: users.length,
       email,
       password,
       major,
-      year
-    });
+      year,
+      classesTaken: []
+    };
+
+    setUser(newUser);
+    users.push(newUser);
+    setSubmitted(true);
   };
 
   const renderEmailField = () => (

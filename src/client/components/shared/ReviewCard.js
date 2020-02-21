@@ -49,7 +49,7 @@ export default function ReviewCard(props) {
             <Card.Subtitle>
               {numReviews}
               {' '}
-              reviews
+              {numReviews === 1 ? 'review' : 'reviews'}
             </Card.Subtitle>
           </Row>
         </Link>

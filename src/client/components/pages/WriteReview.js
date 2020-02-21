@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 import { Redirect } from 'react-router-dom';
 
@@ -15,10 +15,13 @@ import ReviewPageHeader from '../reviews/ReviewPageHeader';
 import StarRatings from '../shared/StarRatings';
 import ReviewSection from '../write/ReviewSection';
 
+import UserContext from '../../utils/UserContext';
+
 import classes from '../../data/classes.json';
 import reviews from '../../data/reviews.json';
 
 export default function WriteReview() {
+  const loggedInUser = useContext(UserContext);
   const [hasSubmitted, changeHasSubmitted] = useState(false);
   const [reviewRating, setReviewRating] = useState(0);
 
@@ -93,14 +96,16 @@ export default function WriteReview() {
     reviews.push(
       {
         id: reviews.length + 1,
-        classId: 'COGS120',
+        classId: 0,
         rating: reviewRating,
         review: form.querySelector('#review').value,
         numLikes: 0,
         numDislikes: 0,
-        reviewer: {}
+        reviewer: { ...loggedInUser, numReviews: 1 } || {}
       }
     );
+
+    console.log(loggedInUser);
 
     changeHasSubmitted(true);
   };
@@ -161,7 +166,7 @@ export default function WriteReview() {
         <br />
       </Container>
 
-      {hasSubmitted ? <Redirect to="/reviews" /> : null}
+      {hasSubmitted ? <Redirect to="/reviews/0" /> : null}
     </>
   );
 }
