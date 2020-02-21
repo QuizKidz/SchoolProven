@@ -22,10 +22,10 @@ export default function App() {
       <Route path="/search">
         <Search />
       </Route>
-      <Route path="/questions">
+      <Route path="/questions/:classId">
         <Questions />
       </Route>
-      <Route path="/reviews">
+      <Route path="/reviews/:classId">
         <Reviews />
       </Route>
       <Route path="/">

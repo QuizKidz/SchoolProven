@@ -1,6 +1,7 @@
+/* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react';
 
-import { Redirect } from 'react-router-dom';
+import { Redirect, useParams } from 'react-router-dom';
 
 import Container from 'react-bootstrap/Container';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
@@ -20,9 +21,13 @@ import handleSearch from '../../utils/handleSearch';
 import questions from '../../data/questions.json';
 
 export default function Questions() {
+  const { classId } = useParams();
+  // eslint-disable-next-line eqeqeq
+  const questionsForClass = questions.filter(question => question.classId == classId);
+
   const [isReviewsActive, setReviewsActive] = useState(false);
   const [submitCount, setSubmitCount] = useState(0);
-  const [searchResults, setSearchResults] = useState(questions);
+  const [searchResults, setSearchResults] = useState(questionsForClass);
   const [noResults, setNoResults] = useState(false);
 
   const handleToggleChange = (value) => {
@@ -30,7 +35,7 @@ export default function Questions() {
   };
 
   const handleSearchInput = (e) => {
-    handleSearch(e, questions, questions, setSearchResults, setNoResults, ['question']);
+    handleSearch(e, questionsForClass, questionsForClass, setSearchResults, setNoResults, ['question']);
   };
 
   const handleAnswerSubmit = questionIndex => (event) => {
@@ -45,6 +50,7 @@ export default function Questions() {
     event.preventDefault();
     const form = event.currentTarget;
     questions.push({
+      classId,
       question: form.querySelector('#question').value,
       answers: []
     });
@@ -107,26 +113,23 @@ export default function Questions() {
         <Accordion className="Questions-content">
           {searchResults.map((question, i) => {
             const cardProps = {
-              // bg: question.answers.length > 0 ? '' : 'danger',
               className: question.answers.length > 0 ? '' : 'Questions-unanswered',
-              // text: question.answers.length > 0 ? '' : 'white'
             };
 
             return (
-              // eslint-disable-next-line react/no-array-index-key
               <Card key={i} {...cardProps}>
                 <Accordion.Toggle as={Card.Header} eventKey={i}>
                   {question.question}
                 </Accordion.Toggle>
                 <Accordion.Collapse eventKey={i}>
                   <>
-                    {question.answers.map(answer => (
-                      <>
+                    {question.answers.map((answer, a) => (
+                      <div key={a}>
                         <Card.Body>
                           {answer}
                         </Card.Body>
                         <hr />
-                      </>
+                      </div>
                     ))}
                     {renderAnswerInput(i)}
                   </>
@@ -170,7 +173,7 @@ export default function Questions() {
         {renderQuestionInput()}
       </Container>
 
-      {isReviewsActive ? <Redirect to="/reviews" /> : null}
+      {isReviewsActive ? <Redirect to={`/reviews/${classId}`} /> : null}
     </>
   );
 }

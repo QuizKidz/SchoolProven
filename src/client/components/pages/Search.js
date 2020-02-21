@@ -36,7 +36,7 @@ export default function Search() {
             <SearchResultCard
               {...course}
               key={course.id}
-              linkTo="/reviews"
+              linkTo={`/reviews/${course.id}`}
             />
           ))
           : noResults

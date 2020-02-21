@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Redirect } from 'react-router-dom';
+import { Redirect, useParams } from 'react-router-dom';
 
 import Container from 'react-bootstrap/Container';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
@@ -22,11 +22,15 @@ import reviews from '../../data/reviews.json';
 import classes from '../../data/classes.json';
 
 export default function Reviews() {
-  const [searchResults, setSearchResults] = useState(reviews);
+  const { classId } = useParams();
+  const currentClass = classes[classId];
+  // eslint-disable-next-line eqeqeq
+  const reviewsForClass = reviews.filter(review => review.classId == classId);
+
+  const [searchResults, setSearchResults] = useState(reviewsForClass);
   const [noResults, setNoResults] = useState(false);
   const [isQuestionsActive, setQuestionsActive] = useState(false);
 
-  const currentClass = classes[0];
   const {
     professorName,
     className,
@@ -37,7 +41,7 @@ export default function Reviews() {
   } = currentClass;
 
   const handleSearchInput = (e) => {
-    handleSearch(e, reviews, reviews, setSearchResults, setNoResults, ['review']);
+    handleSearch(e, reviewsForClass, reviewsForClass, setSearchResults, setNoResults, ['review']);
   };
 
   const handleToggleChange = (value) => {
@@ -89,7 +93,7 @@ export default function Reviews() {
         }
       </Container>
 
-      {isQuestionsActive ? <Redirect to="/questions" /> : null}
+      {isQuestionsActive ? <Redirect to={`/questions/${classId}`} /> : null}
     </>
   );
 }
