@@ -19,7 +19,7 @@ export default function App() {
   return (
     <UserContext.Provider value={user}>
       <Switch>
-        <Route path="/profile">
+        <Route path="/profile/:userId">
           <Profile />
         </Route>
         <Route path="/write">

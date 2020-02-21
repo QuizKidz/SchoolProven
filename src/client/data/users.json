@@ -5,6 +5,16 @@
     "password": "password",
     "major": "Cognitive Science",
     "year": "3rd",
-    "classesTaken": ["DSGN 1", "COGS 1", "COGS 120"]
+    "classesTaken": ["DSGN 1", "COGS 1", "COGS 120"],
+    "numReviews": 12
+  },
+  {
+    "id": 1,
+    "email": "cs-student",
+    "password": "password",
+    "major": "Computer Science",
+    "year": "4th",
+    "classesTaken": ["CSE 8A", "CSE 8B", "CSE 100", "COGS 120"],
+    "numReviews": 6
   }
 ]

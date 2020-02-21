@@ -15,11 +15,12 @@ export default function SearchResultCard(props) {
     className,
     classCode,
     classRating,
-    avgGrade,
-    percentRecommend,
+    classStats,
     tags,
     linkTo,
   } = props;
+
+  const { avgGrade, percentRecommend } = classStats;
 
   return (
     <Link to={linkTo}>
@@ -71,8 +72,10 @@ SearchResultCard.propTypes = {
   className: PropTypes.string.isRequired,
   classCode: PropTypes.string.isRequired,
   classRating: PropTypes.number.isRequired,
-  avgGrade: PropTypes.string.isRequired,
-  percentRecommend: PropTypes.number.isRequired,
+  classStats: PropTypes.shape({
+    avgGrade: PropTypes.string.isRequired,
+    percentRecommend: PropTypes.number.isRequired,
+  }).isRequired,
   tags: PropTypes.arrayOf(PropTypes.string).isRequired,
   linkTo: PropTypes.string.isRequired,
 };

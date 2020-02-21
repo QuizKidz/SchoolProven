@@ -20,6 +20,7 @@ import handleSearch from '../../utils/handleSearch';
 
 import reviews from '../../data/reviews.json';
 import classes from '../../data/classes.json';
+import users from '../../data/users.json';
 
 export default function Reviews() {
   const { classId } = useParams();
@@ -94,7 +95,13 @@ export default function Reviews() {
         {
           noResults
             ? <NoResultsCard />
-            : searchResults.map(review => <ReviewCard key={review.id} {...review} />)
+            : searchResults.map((review) => {
+              const { reviewerId, ...reviewInfo } = review;
+              const reviewer = reviewerId !== null && reviewerId < users.length
+                ? users[reviewerId]
+                : {};
+              return <ReviewCard key={review.id} reviewer={reviewer} {...reviewInfo} />;
+            })
         }
       </Container>
 

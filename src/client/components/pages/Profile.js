@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 
-import { Redirect } from 'react-router-dom';
+import { Redirect, useParams } from 'react-router-dom';
 
 import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
@@ -12,8 +12,11 @@ import BackButton from '../shared/BackButton';
 
 import UserContext from '../../utils/UserContext';
 
+import users from '../../data/users.json';
+
 export default function Profile() {
-  const user = useContext(UserContext);
+  const { userId } = useParams();
+  const user = userId ? users[userId] : useContext(UserContext);
   console.log(user);
 
   const renderProfileCard = () => (

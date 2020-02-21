@@ -65,11 +65,11 @@ export default function Home(props) {
 
   const renderLoggedInOptions = () => (
     <>
-      <Link to="/profile">
+      <Link to={`/profile/${loggedInUser.id}`}>
         <Button variant="primary" size="lg" block>
           <FaUserGraduate />
           {' '}
-          Profile
+          My Profile
         </Button>
       </Link>
       <br />

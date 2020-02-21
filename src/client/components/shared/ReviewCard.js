@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+import { Link } from 'react-router-dom';
+
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
@@ -35,27 +37,29 @@ export default function ReviewCard(props) {
   const renderReviewerInfo = () => (Object.keys(reviewer).length === 0 ? renderEmptyReviewerInfo()
     : (
       <Col className="ReviewCard-reviewer">
-        <Row className="ReviewCard-reviewer-icon"><FaUserGraduate /></Row>
-        <Row className="ReviewCard-reviewer-info">
-          <Card.Subtitle>{major}</Card.Subtitle>
-          <Card.Subtitle>
-            {year}
-            {' '}
-            year
-          </Card.Subtitle>
-          <Card.Subtitle>
-            {numReviews}
-            {' '}
-            reviews
-          </Card.Subtitle>
-        </Row>
-        <Row className="ReviewCard-reviewer-badge">
-          <Badge pill variant="success" onClick={() => setShow(true)}>
-            <MdVerifiedUser />
-            {' '}
-            Proven
-          </Badge>
-        </Row>
+        <Link to={`/profile/${reviewer.id}`}>
+          <Row className="ReviewCard-reviewer-icon"><FaUserGraduate /></Row>
+          <Row className="ReviewCard-reviewer-info">
+            <Card.Subtitle>{major}</Card.Subtitle>
+            <Card.Subtitle>
+              {year}
+              {' '}
+              year
+            </Card.Subtitle>
+            <Card.Subtitle>
+              {numReviews}
+              {' '}
+              reviews
+            </Card.Subtitle>
+          </Row>
+          <Row className="ReviewCard-reviewer-badge">
+            <Badge pill variant="success" onClick={() => setShow(true)}>
+              <MdVerifiedUser />
+              {' '}
+              Proven
+            </Badge>
+          </Row>
+        </Link>
       </Col>
     ));
 
@@ -142,6 +146,7 @@ ReviewCard.propTypes = {
   rating: PropTypes.number.isRequired,
   review: PropTypes.string.isRequired,
   reviewer: PropTypes.shape({
+    id: PropTypes.number.isRequired,
     major: PropTypes.string.isRequired,
     year: PropTypes.string.isRequired,
     numReviews: PropTypes.number.isRequired,
