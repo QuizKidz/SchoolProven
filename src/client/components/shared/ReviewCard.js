@@ -52,14 +52,14 @@ export default function ReviewCard(props) {
               reviews
             </Card.Subtitle>
           </Row>
-          <Row className="ReviewCard-reviewer-badge">
-            <Badge pill variant="success" onClick={() => setShow(true)}>
-              <MdVerifiedUser />
-              {' '}
-              Proven
-            </Badge>
-          </Row>
         </Link>
+        <Row className="ReviewCard-reviewer-badge">
+          <Badge pill variant="success" onClick={() => setShow(true)}>
+            <MdVerifiedUser />
+            {' '}
+            Proven
+          </Badge>
+        </Row>
       </Col>
     ));
 
