@@ -115,6 +115,15 @@ nav .SchoolProven-logo {
   padding: 12px;
 }
 
+.Profile-card {
+  margin: 24px auto 48px auto;
+  align-items: center;
+}
+
+.Profile-info-card {
+  margin: 24px auto;
+}
+
 .SearchBar {
   margin: 48px 0;
 }
