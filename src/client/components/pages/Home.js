@@ -32,7 +32,7 @@ export default function Home(props) {
     let userToLogIn = null;
     users.forEach((user) => {
       if (user.email.toLowerCase() === email.toLowerCase()
-      && user.password.toLowerCase() === password.toLowerCase()) {
+      && user.password === password) {
         userToLogIn = user;
       }
     });
