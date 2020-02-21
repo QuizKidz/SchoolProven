@@ -105,8 +105,6 @@ export default function WriteReview() {
       }
     );
 
-    console.log(loggedInUser);
-
     changeHasSubmitted(true);
   };
 
