@@ -14,16 +14,18 @@ export default function Login(props) {
   const [invalidLogin, setInvalidLogin] = useState(false);
   const { show, onHide, onLogin } = props;
 
-  const handleLogin = () => {
+  const handleLogin = (e) => {
+    e.preventDefault();
+
     if (onLogin(email, password)) {
       onHide();
-    } else {
+    } else if (email && password) {
       setInvalidLogin(true);
     }
   };
 
   const renderLoginForm = () => (
-    <Form>
+    <Form onSubmit={handleLogin}>
       <Form.Group as={Row} controlId="email">
         <Form.Label column md={2}>
           Email
@@ -57,8 +59,9 @@ export default function Login(props) {
           />
         </Col>
       </Form.Group>
-
       {invalidLogin ? <h6 className="InvlaidLogin">Invalid email or password.</h6> : null}
+      <br />
+      <Button type="submit" size="lg" block>Log in</Button>
     </Form>
   );
 
@@ -75,9 +78,6 @@ export default function Login(props) {
         <Modal.Body>
           {renderLoginForm()}
         </Modal.Body>
-        <Modal.Footer>
-          <Button onClick={handleLogin} size="lg" block>Log in</Button>
-        </Modal.Footer>
       </Modal>
     </div>
   );
