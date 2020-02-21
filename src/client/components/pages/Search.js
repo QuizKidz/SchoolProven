@@ -30,11 +30,7 @@ export default function Search() {
       <NavBar />
       <Container className="Search">
         <BackButton to="/" />
-        <SearchBar
-          className="Search-SearchBar"
-          placeholder="Search by Class or Professor"
-          onInput={handleSearchInput}
-        />
+        <SearchBar placeholder="Search by Class or Professor" onInput={handleSearchInput} />
         {searchResults.length > 0
           ? searchResults.map(course => (
             <SearchResultCard

@@ -97,7 +97,7 @@ nav .SchoolProven-logo {
   padding: 24px;
 }
 
-.Search-SearchBar {
+.SearchBar {
   margin: 48px 0;
 }
 
@@ -246,6 +246,16 @@ nav .SchoolProven-logo {
 
 .Questions {
   margin-bottom: 72px;
+}
+
+.Questions-header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 48px;
+}
+
+.Questions-NoResultsCard {
+  margin: 48px 0;
 }
 
 .Questions-content {

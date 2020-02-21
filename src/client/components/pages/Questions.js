@@ -12,15 +12,25 @@ import Button from 'react-bootstrap/Button';
 
 import NavBar from '../shared/NavBar';
 import BackButton from '../shared/BackButton';
+import SearchBar from '../shared/SearchBar';
+import NoResultsCard from '../shared/NoResultsCard';
+
+import handleSearch from '../../utils/handleSearch';
 
 import questions from '../../data/questions.json';
 
 export default function Questions() {
   const [isReviewsActive, setReviewsActive] = useState(false);
   const [submitCount, setSubmitCount] = useState(0);
+  const [searchResults, setSearchResults] = useState(questions);
+  const [noResults, setNoResults] = useState(false);
 
   const handleToggleChange = (value) => {
     setReviewsActive(value === 0);
+  };
+
+  const handleSearchInput = (e) => {
+    handleSearch(e, questions, questions, setSearchResults, setNoResults, ['question']);
   };
 
   const handleAnswerSubmit = questionIndex => (event) => {
@@ -57,6 +67,17 @@ export default function Questions() {
     </div>
   );
 
+  const renderHeader = () => (
+    <div className="Questions-header">
+      <h4>Questions</h4>
+      <SearchBar
+        className="Reviews-SearchBar"
+        placeholder="Search Questions"
+        onInput={handleSearchInput}
+      />
+    </div>
+  );
+
   const renderAnswerInput = questionIndex => (
     <Accordion>
       <Container>
@@ -80,37 +101,41 @@ export default function Questions() {
   );
 
   const renderQuestions = () => (
-    <Accordion className="Questions-content">
-      {questions.map((question, i) => {
-        const cardProps = {
-          // bg: question.answers.length > 0 ? '' : 'danger',
-          className: question.answers.length > 0 ? '' : 'Questions-unanswered',
-          // text: question.answers.length > 0 ? '' : 'white'
-        };
+    noResults
+      ? <NoResultsCard className="Questions-NoResultsCard" />
+      : (
+        <Accordion className="Questions-content">
+          {searchResults.map((question, i) => {
+            const cardProps = {
+              // bg: question.answers.length > 0 ? '' : 'danger',
+              className: question.answers.length > 0 ? '' : 'Questions-unanswered',
+              // text: question.answers.length > 0 ? '' : 'white'
+            };
 
-        return (
-          // eslint-disable-next-line react/no-array-index-key
-          <Card key={i} {...cardProps}>
-            <Accordion.Toggle as={Card.Header} eventKey={i}>
-              {question.question}
-            </Accordion.Toggle>
-            <Accordion.Collapse eventKey={i}>
-              <>
-                {question.answers.map(answer => (
+            return (
+              // eslint-disable-next-line react/no-array-index-key
+              <Card key={i} {...cardProps}>
+                <Accordion.Toggle as={Card.Header} eventKey={i}>
+                  {question.question}
+                </Accordion.Toggle>
+                <Accordion.Collapse eventKey={i}>
                   <>
-                    <Card.Body>
-                      {answer}
-                    </Card.Body>
-                    <hr />
+                    {question.answers.map(answer => (
+                      <>
+                        <Card.Body>
+                          {answer}
+                        </Card.Body>
+                        <hr />
+                      </>
+                    ))}
+                    {renderAnswerInput(i)}
                   </>
-                ))}
-                {renderAnswerInput(i)}
-              </>
-            </Accordion.Collapse>
-          </Card>
-        );
-      })}
-    </Accordion>
+                </Accordion.Collapse>
+              </Card>
+            );
+          })}
+        </Accordion>
+      )
   );
 
   const renderQuestionInput = () => (
@@ -140,6 +165,7 @@ export default function Questions() {
         <BackButton to="/search" />
         <br />
         {renderToggle()}
+        {renderHeader()}
         {renderQuestions()}
         {renderQuestionInput()}
       </Container>
