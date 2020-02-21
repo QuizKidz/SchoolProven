@@ -35,10 +35,15 @@ export default function Reviews() {
     professorName,
     className,
     classCode,
-    classRating,
-    avgGrade,
-    percentRecommend
+    classStats,
   } = currentClass;
+
+  const totalClassRating = reviewsForClass.reduce(
+    (totalRating, review) => review.rating + totalRating,
+    0
+  );
+  const numReviews = reviewsForClass.length;
+  const classRating = totalClassRating / numReviews;
 
   const handleSearchInput = (e) => {
     handleSearch(e, reviewsForClass, reviewsForClass, setSearchResults, setNoResults, ['review']);
@@ -75,8 +80,8 @@ export default function Reviews() {
           className={className}
           classCode={classCode}
         />
-        <StarRatings rating={classRating} stat="(100)" />
-        <ClassStats avgGrade={avgGrade} percentRecommend={percentRecommend} />
+        <StarRatings rating={classRating} stat={`(${numReviews})`} />
+        <ClassStats {...classStats} />
         <ReviewBreakdown ratingBreakdowns={['70%', '11%', '8%', '4%', '7%']} />
         <div className="Reviews-header">
           <h5>Reviews</h5>

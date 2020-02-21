@@ -5,8 +5,11 @@
     "className": "Interaction Design",
     "classCode": "COGS 120/CSE 170",
     "classRating": 4,
-    "avgGrade": "A",
-    "percentRecommend": 89,
+    "classStats": {
+      "quarter": "Spring 2019",
+      "avgGrade": "A",
+      "percentRecommend": 89
+    },
     "tags": ["Interesting Course", "Thought Provoking", "Smart Professor"]
   }
 ]

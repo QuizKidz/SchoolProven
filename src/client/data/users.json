@@ -1,0 +1,10 @@
+[
+  {
+    "id": 0,
+    "email": "student",
+    "password": "password",
+    "major": "Cognitive Science",
+    "year": "3rd",
+    "classesTaken": ["DSGN 1", "COGS 1", "COGS 120"]
+  }
+]

@@ -4,11 +4,13 @@ import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 
 export default function ClassStats(props) {
-  const { avgGrade, percentRecommend } = props;
+  const { quarter, avgGrade, percentRecommend } = props;
 
   return (
     <Card className="ClassStats">
       <Card.Body>
+        <Card.Subtitle>{quarter}</Card.Subtitle>
+        <br />
         <Card.Title>
           <span className="ClassStats-stat">{avgGrade}</span>
           {'  '}
@@ -28,6 +30,7 @@ export default function ClassStats(props) {
 }
 
 ClassStats.propTypes = {
+  quarter: PropTypes.string.isRequired,
   avgGrade: PropTypes.string.isRequired,
   percentRecommend: PropTypes.number.isRequired,
 };

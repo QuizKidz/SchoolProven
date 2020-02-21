@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/app.css';
 
@@ -9,28 +9,38 @@ import Questions from './components/pages/Questions';
 import Search from './components/pages/Search';
 import Signup from './components/pages/Signup';
 import WriteReview from './components/pages/WriteReview';
+import Profile from './components/pages/Profile';
+
+import UserContext from './utils/UserContext';
 
 export default function App() {
+  const [user, setUser] = useState(null);
+
   return (
-    <Switch>
-      <Route path="/write">
-        <WriteReview />
-      </Route>
-      <Route path="/signup">
-        <Signup />
-      </Route>
-      <Route path="/search">
-        <Search />
-      </Route>
-      <Route path="/questions/:classId">
-        <Questions />
-      </Route>
-      <Route path="/reviews/:classId">
-        <Reviews />
-      </Route>
-      <Route path="/">
-        <Home />
-      </Route>
-    </Switch>
+    <UserContext.Provider value={user}>
+      <Switch>
+        <Route path="/profile">
+          <Profile />
+        </Route>
+        <Route path="/write">
+          <WriteReview />
+        </Route>
+        <Route path="/signup">
+          <Signup setUser={setUser} />
+        </Route>
+        <Route path="/search">
+          <Search />
+        </Route>
+        <Route path="/questions/:classId">
+          <Questions />
+        </Route>
+        <Route path="/reviews/:classId">
+          <Reviews />
+        </Route>
+        <Route path="/">
+          <Home setUser={setUser} />
+        </Route>
+      </Switch>
+    </UserContext.Provider>
   );
 }

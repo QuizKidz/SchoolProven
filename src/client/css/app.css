@@ -92,9 +92,27 @@ nav .SchoolProven-logo {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.InvlaidLogin {
+  color: #900;
+  margin: 12px 0;
+}
+
+.HomeToast {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 100%;
+  background-color: #28a745;
+}
+
+.UserIcon {
+  color: #149650;
+}
+
 .Signup-form {
   margin: 48px auto;
-  padding: 24px;
+  padding: 12px;
 }
 
 .SearchBar {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import Modal from 'react-bootstrap/Modal';
@@ -9,7 +9,18 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
 export default function Login(props) {
-  const { onHide } = props;
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
+  const [invalidLogin, setInvalidLogin] = useState(false);
+  const { show, onHide, onLogin } = props;
+
+  const handleLogin = () => {
+    if (onLogin(email, password)) {
+      onHide();
+    } else {
+      setInvalidLogin(true);
+    }
+  };
 
   const renderLoginForm = () => (
     <Form>
@@ -19,7 +30,12 @@ export default function Login(props) {
         </Form.Label>
         <Col md={10}>
           <InputGroup>
-            <Form.Control type="email" />
+            <Form.Control
+              required
+              type="text"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+            />
             <InputGroup.Append>
               <InputGroup.Text>@ucsd.edu</InputGroup.Text>
             </InputGroup.Append>
@@ -32,16 +48,25 @@ export default function Login(props) {
           Password
         </Form.Label>
         <Col md={10}>
-          <Form.Control type="password" placeholder="Password" />
+          <Form.Control
+            required
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+          />
         </Col>
       </Form.Group>
+
+      {invalidLogin ? <h6 className="InvlaidLogin">Invalid email or password.</h6> : null}
     </Form>
   );
 
   return (
     <div className="LoginModal">
       <Modal
-        {...props}
+        show={show}
+        onHide={onHide}
         size="lg"
         centered
       >
@@ -51,7 +76,7 @@ export default function Login(props) {
           {renderLoginForm()}
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={onHide} size="lg" block>Log in</Button>
+          <Button onClick={handleLogin} size="lg" block>Log in</Button>
         </Modal.Footer>
       </Modal>
     </div>
@@ -61,4 +86,5 @@ export default function Login(props) {
 Login.propTypes = {
   show: PropTypes.bool.isRequired,
   onHide: PropTypes.func.isRequired,
+  onLogin: PropTypes.func.isRequired
 };
