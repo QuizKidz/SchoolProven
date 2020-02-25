@@ -101,7 +101,7 @@ export default function WriteReview() {
         review: form.querySelector('#review').value,
         numLikes: 0,
         numDislikes: 0,
-        reviewer: { ...loggedInUser, numReviews: 1 } || {}
+        reviewer: loggedInUser ? { ...loggedInUser, numReviews: 1 } : {}
       }
     );
 
