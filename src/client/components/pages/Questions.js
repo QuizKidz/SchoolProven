@@ -49,13 +49,15 @@ export default function Questions() {
   const handleQuestionSubmit = (event) => {
     event.preventDefault();
     const form = event.currentTarget;
-    questions.push({
+    const newQuestion = {
       classId,
       question: form.querySelector('#question').value,
       answers: []
-    });
+    };
+
+    questions.push(newQuestion);
+    setSearchResults([...questionsForClass, newQuestion]);
     form.querySelector('#question').value = '';
-    setSubmitCount(submitCount + 1);
   };
 
   const renderToggle = () => (
