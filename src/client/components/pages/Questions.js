@@ -42,8 +42,8 @@ export default function Questions() {
     event.preventDefault();
     const form = event.currentTarget;
     questions[questionIndex].answers.push(form.querySelector('#answer').value);
-    form.querySelector('#answer').value = '';
     setSubmitCount(submitCount + 1);
+    form.reset();
   };
 
   const handleQuestionSubmit = (event) => {
@@ -57,7 +57,7 @@ export default function Questions() {
 
     questions.push(newQuestion);
     setSearchResults([...questionsForClass, newQuestion]);
-    form.querySelector('#question').value = '';
+    form.reset();
   };
 
   const renderToggle = () => (
