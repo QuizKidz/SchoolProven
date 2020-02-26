@@ -277,13 +277,13 @@ nav .SchoolProven-logo {
 }
 
 .Questions {
-  margin-bottom: 72px;
+  margin-bottom: 480px;
 }
 
 .Questions-header {
   display: flex;
   justify-content: space-between;
-  margin-top: 48px;
+  margin: 48px auto;
 }
 
 .Questions-NoResultsCard {
@@ -294,18 +294,50 @@ nav .SchoolProven-logo {
   margin: 48px auto;
 }
 
+.Questions-card-header {
+  background-color: #f8f9fa;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Questions-dropdown {
+  font-size: x-large;
+  flex-shrink: 0;
+}
+
+.Questions-answer-icon {
+  font-size: x-large;
+  flex-shrink: 0;
+  margin-right: 12px;
+}
+
 .Questions-unanswered {
   background: #FFE6E6;
   color: #900;
 }
 
+.Questions-answer {
+  margin-left: 24px;
+  border-left: lightgray solid thin;
+}
+
+.Questions-ask-input-header {
+  color: #0d6335;
+}
+
 .Questions-answer-input-header {
   color: #0d6335;
-  margin: 18px auto;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
 }
 
 .Questions-answer-input {
-  margin-bottom: 12px;
+  border-left: #0d6335 solid thin;
+  margin: 0 0 12px 24px;
+  padding-bottom: 8px;
 }
 
 .WriteReview-header {

@@ -11,6 +11,10 @@ import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
+import { MdQuestionAnswer } from 'react-icons/md';
+import { FaQuestion } from 'react-icons/fa';
+import { IoIosArrowDown } from 'react-icons/io';
+
 import NavBar from '../shared/NavBar';
 import BackButton from '../shared/BackButton';
 import SearchBar from '../shared/SearchBar';
@@ -88,23 +92,24 @@ export default function Questions() {
 
   const renderAnswerInput = questionIndex => (
     <Accordion>
-      <Container>
-        <Accordion.Toggle eventKey="answerInput" as="div">
-          <h6 className="Questions-answer-input-header">Answer this Question</h6>
+      <Card.Body className="Questions-answer-input">
+        <Accordion.Toggle eventKey="answerInput" as="div" className="Questions-answer-input-header">
+          <h6>Answer this Question</h6>
+          <MdQuestionAnswer className="Questions-dropdown" />
         </Accordion.Toggle>
         <Accordion.Collapse eventKey="answerInput">
           <Form onSubmit={handleAnswerSubmit(questionIndex)}>
+            <br />
             <Form.Control
               required
               as="textarea"
               id="answer"
-              className="Questions-answer-input"
             />
-            <Button type="submit" size="lg" block>Submit</Button>
             <br />
+            <Button type="submit" size="lg" block>Submit</Button>
           </Form>
         </Accordion.Collapse>
-      </Container>
+      </Card.Body>
     </Accordion>
   );
 
@@ -114,20 +119,20 @@ export default function Questions() {
       : (
         <Accordion className="Questions-content">
           {searchResults.map((question, i) => {
-            const cardProps = {
-              className: question.answers.length > 0 ? '' : 'Questions-unanswered',
-            };
+            const headerClassName = `Questions-card-header ${question.answers.length > 0 ? '' : 'Questions-unanswered'}`;
 
             return (
-              <Card key={i} {...cardProps}>
-                <Accordion.Toggle as={Card.Header} eventKey={i}>
+              <Card key={i}>
+                <Accordion.Toggle as={Card.Header} eventKey={i} className={headerClassName}>
                   {question.question}
+                  <FaQuestion className="Questions-dropdown" />
+                  {/* <IoIosArrowDown className="Questions-dropdown" /> */}
                 </Accordion.Toggle>
                 <Accordion.Collapse eventKey={i}>
                   <>
                     {question.answers.map((answer, a) => (
                       <div key={a}>
-                        <Card.Body>
+                        <Card.Body className="Questions-answer">
                           {answer}
                         </Card.Body>
                         <hr />
@@ -146,8 +151,9 @@ export default function Questions() {
   const renderQuestionInput = () => (
     <Accordion>
       <Card>
-        <Accordion.Toggle eventKey="questionInput" as={Card.Header}>
-          <h5>Ask a Question</h5>
+        <Accordion.Toggle eventKey="questionInput" as={Card.Header} className="Questions-card-header">
+          <h5 className="Questions-ask-input-header">Ask a Question</h5>
+          <IoIosArrowDown className="Questions-dropdown" />
         </Accordion.Toggle>
         <Accordion.Collapse eventKey="questionInput">
           <Form onSubmit={handleQuestionSubmit}>
@@ -171,8 +177,8 @@ export default function Questions() {
         <br />
         {renderToggle()}
         {renderHeader()}
-        {renderQuestions()}
         {renderQuestionInput()}
+        {renderQuestions()}
       </Container>
 
       {isReviewsActive ? <Redirect to={`/reviews/${classId}`} /> : null}
