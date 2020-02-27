@@ -5,13 +5,13 @@ import Card from 'react-bootstrap/Card';
 import { FaTimes } from 'react-icons/fa';
 
 export default function NoResultsCard(props) {
-  const { className } = props;
+  const { className, title, icon } = props;
 
   return (
     <Card bg="light" border="light" className={className}>
       <Card.Body className="EmptySearchCard">
-        <h3>No results found.</h3>
-        <FaTimes />
+        <h3>{title}</h3>
+        {icon}
       </Card.Body>
     </Card>
   );
@@ -19,8 +19,12 @@ export default function NoResultsCard(props) {
 
 NoResultsCard.propTypes = {
   className: PropTypes.string,
+  title: PropTypes.string,
+  icon: PropTypes.element
 };
 
 NoResultsCard.defaultProps = {
   className: 'NoResultsCard',
+  title: 'No results found.',
+  icon: <FaTimes />,
 };

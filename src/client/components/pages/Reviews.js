@@ -6,6 +6,8 @@ import Container from 'react-bootstrap/Container';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 
+import { FaRegFrown } from 'react-icons/fa';
+
 import NavBar from '../shared/NavBar';
 import BackButton from '../shared/BackButton';
 import ReviewPageHeader from '../reviews/ReviewPageHeader';
@@ -69,6 +71,21 @@ export default function Reviews() {
     </div>
   );
 
+  const renderReviews = () => (
+    // eslint-disable-next-line no-nested-ternary
+    noResults
+      ? <NoResultsCard />
+      : searchResults.length > 0
+        ? searchResults.map((review) => {
+          const { reviewerId, ...reviewInfo } = review;
+          const reviewer = reviewerId !== null && reviewerId < users.length
+            ? users[reviewerId]
+            : {};
+          return <ReviewCard key={review.id} reviewer={reviewer} {...reviewInfo} />;
+        })
+        : <NoResultsCard title="No reviews for this class yet..." icon={<FaRegFrown />} />
+  );
+
   return (
     <>
       <NavBar />
@@ -92,17 +109,7 @@ export default function Reviews() {
             onInput={handleSearchInput}
           />
         </div>
-        {
-          noResults
-            ? <NoResultsCard />
-            : searchResults.map((review) => {
-              const { reviewerId, ...reviewInfo } = review;
-              const reviewer = reviewerId !== null && reviewerId < users.length
-                ? users[reviewerId]
-                : {};
-              return <ReviewCard key={review.id} reviewer={reviewer} {...reviewInfo} />;
-            })
-        }
+        {renderReviews()}
       </Container>
 
       {isQuestionsActive ? <Redirect to={`/questions/${classId}`} /> : null}

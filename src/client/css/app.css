@@ -208,13 +208,12 @@ nav .SchoolProven-logo {
   margin: 24px 0;
 }
 
-.ReviewCard:last-child {
+.Search-results:last-child {
   margin-bottom: 144px;
 }
 
 .ReviewCard-reviewer {
   flex-grow: 0.5;
-  /* margin: 3px; */
   text-align: center;
 }
 

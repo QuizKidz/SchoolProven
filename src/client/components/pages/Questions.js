@@ -11,9 +11,9 @@ import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-import { MdQuestionAnswer } from 'react-icons/md';
-import { FaQuestion } from 'react-icons/fa';
+import { FaQuestion, FaRegFrown } from 'react-icons/fa';
 import { IoIosArrowDown } from 'react-icons/io';
+import { MdQuestionAnswer } from 'react-icons/md';
 
 import NavBar from '../shared/NavBar';
 import BackButton from '../shared/BackButton';
@@ -44,6 +44,7 @@ export default function Questions() {
 
   const handleAnswerSubmit = questionIndex => (event) => {
     event.preventDefault();
+    console.log(questions);
     const form = event.currentTarget;
     questions[questionIndex].answers.push(form.querySelector('#answer').value);
     setSubmitCount(submitCount + 1);
@@ -54,7 +55,8 @@ export default function Questions() {
     event.preventDefault();
     const form = event.currentTarget;
     const newQuestion = {
-      classId,
+      id: questions.length,
+      classId: parseInt(classId, 10),
       question: form.querySelector('#question').value,
       answers: []
     };
@@ -114,38 +116,41 @@ export default function Questions() {
   );
 
   const renderQuestions = () => (
+    // eslint-disable-next-line no-nested-ternary
     noResults
       ? <NoResultsCard className="Questions-NoResultsCard" />
-      : (
-        <Accordion className="Questions-content">
-          {searchResults.map((question, i) => {
-            const headerClassName = `Questions-card-header ${question.answers.length > 0 ? '' : 'Questions-unanswered'}`;
+      : searchResults.length > 0
+        ? (
+          <Accordion className="Questions-content">
+            {searchResults.map((question, i) => {
+              const headerClassName = `Questions-card-header ${question.answers.length > 0 ? '' : 'Questions-unanswered'}`;
 
-            return (
-              <Card key={i}>
-                <Accordion.Toggle as={Card.Header} eventKey={i} className={headerClassName}>
-                  {question.question}
-                  <FaQuestion className="Questions-dropdown" />
-                  {/* <IoIosArrowDown className="Questions-dropdown" /> */}
-                </Accordion.Toggle>
-                <Accordion.Collapse eventKey={i}>
-                  <>
-                    {question.answers.map((answer, a) => (
-                      <div key={a}>
-                        <Card.Body className="Questions-answer">
-                          {answer}
-                        </Card.Body>
-                        <hr />
-                      </div>
-                    ))}
-                    {renderAnswerInput(i)}
-                  </>
-                </Accordion.Collapse>
-              </Card>
-            );
-          })}
-        </Accordion>
-      )
+              return (
+                <Card key={i}>
+                  <Accordion.Toggle as={Card.Header} eventKey={i} className={headerClassName}>
+                    {question.question}
+                    <FaQuestion className="Questions-dropdown" />
+                    {/* <IoIosArrowDown className="Questions-dropdown" /> */}
+                  </Accordion.Toggle>
+                  <Accordion.Collapse eventKey={i}>
+                    <>
+                      {question.answers.map((answer, a) => (
+                        <div key={a}>
+                          <Card.Body className="Questions-answer">
+                            {answer}
+                          </Card.Body>
+                          <hr />
+                        </div>
+                      ))}
+                      {renderAnswerInput(question.id)}
+                    </>
+                  </Accordion.Collapse>
+                </Card>
+              );
+            })}
+          </Accordion>
+        )
+        : <NoResultsCard title="No questions for this class yet..." icon={<FaRegFrown />} />
   );
 
   const renderQuestionInput = () => (

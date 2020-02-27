@@ -22,8 +22,11 @@ export default function App() {
         <Route path="/profile/:userId">
           <Profile />
         </Route>
-        <Route path="/write">
+        <Route path="/write/:classId">
           <WriteReview />
+        </Route>
+        <Route path="/write">
+          <Search isWritingReview />
         </Route>
         <Route path="/signup">
           <Signup setUser={setUser} />

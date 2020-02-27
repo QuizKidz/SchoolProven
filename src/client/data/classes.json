@@ -11,5 +11,44 @@
       "percentRecommend": 89
     },
     "tags": ["Interesting Course", "Thought Provoking", "Smart Professor"]
+  },
+  {
+    "id": 1,
+    "professorName": "Phillip Guo",
+    "className": "Interaction Design",
+    "classCode": "COGS 120/CSE 170",
+    "classRating": 4,
+    "classStats": {
+      "quarter": "Spring 2019",
+      "avgGrade": "A",
+      "percentRecommend": 92
+    },
+    "tags": ["Interesting Course", "Thought Provoking", "Smart Professor"]
+  },
+  {
+    "id": 2,
+    "professorName": "Jaime Pineda",
+    "className": "Intro to CogSci",
+    "classCode": "COGS 1",
+    "classRating": 3.5,
+    "classStats": {
+      "quarter": "Spring 2019",
+      "avgGrade": "A-",
+      "percentRecommend": 88
+    },
+    "tags": ["Interesting Course", "Thought Provoking"]
+  },
+  {
+    "id": 3,
+    "professorName": "Michael Meyer",
+    "className": "Design of Everyday Things",
+    "classCode": "DSGN 1",
+    "classRating": 4.5,
+    "classStats": {
+      "quarter": "Spring 2019",
+      "avgGrade": "A-",
+      "percentRecommend": 94
+    },
+    "tags": ["Interesting Course", "Thought Provoking", "Smart Professor"]
   }
 ]

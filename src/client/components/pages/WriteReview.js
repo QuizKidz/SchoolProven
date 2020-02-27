@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 
-import { Redirect } from 'react-router-dom';
+import { Redirect, useParams } from 'react-router-dom';
 
 import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
@@ -21,11 +21,13 @@ import classes from '../../data/classes.json';
 import reviews from '../../data/reviews.json';
 
 export default function WriteReview() {
+  const { classId } = useParams();
+
   const loggedInUser = useContext(UserContext);
   const [hasSubmitted, changeHasSubmitted] = useState(false);
   const [reviewRating, setReviewRating] = useState(0);
 
-  const currentClass = classes[0];
+  const currentClass = classes[classId];
   const {
     professorName,
     className,
@@ -112,7 +114,7 @@ export default function WriteReview() {
     <>
       <NavBar />
       <Container className="WriteReview">
-        <BackButton to="/" />
+        <BackButton to="/write" />
         {renderHeaders()}
 
         <Form onSubmit={handleSubmit}>
