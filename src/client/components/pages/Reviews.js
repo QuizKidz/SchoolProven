@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-import { Redirect, useParams } from 'react-router-dom';
+import { Link, Redirect, useParams } from 'react-router-dom';
 
 import Container from 'react-bootstrap/Container';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
+import Button from 'react-bootstrap/Button';
 
 import { FaRegFrown } from 'react-icons/fa';
 
@@ -33,6 +34,8 @@ export default function Reviews() {
   const [searchResults, setSearchResults] = useState(reviewsForClass);
   const [noResults, setNoResults] = useState(false);
   const [isQuestionsActive, setQuestionsActive] = useState(false);
+
+  useEffect(() => window.scrollTo(0, 0), []);
 
   const {
     professorName,
@@ -110,6 +113,10 @@ export default function Reviews() {
           />
         </div>
         {renderReviews()}
+        <Link to={`/write/${classId}`}>
+          <Button block>Write a Review</Button>
+        </Link>
+        <br />
       </Container>
 
       {isQuestionsActive ? <Redirect to={`/questions/${classId}`} /> : null}

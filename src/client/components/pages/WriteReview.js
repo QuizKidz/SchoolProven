@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 
 import { Redirect, useParams } from 'react-router-dom';
 
@@ -26,6 +26,8 @@ export default function WriteReview() {
   const loggedInUser = useContext(UserContext);
   const [hasSubmitted, changeHasSubmitted] = useState(false);
   const [reviewRating, setReviewRating] = useState(0);
+
+  useEffect(() => window.scrollTo(0, 0), []);
 
   const currentClass = classes[classId];
   const {
@@ -98,7 +100,7 @@ export default function WriteReview() {
     reviews.push(
       {
         id: reviews.length + 1,
-        classId: 0,
+        classId,
         rating: reviewRating,
         review: form.querySelector('#review').value,
         numLikes: 0,
@@ -166,7 +168,7 @@ export default function WriteReview() {
         <br />
       </Container>
 
-      {hasSubmitted ? <Redirect to="/reviews/0" /> : null}
+      {hasSubmitted ? <Redirect to={`/reviews/${classId}`} /> : null}
     </>
   );
 }
