@@ -9,13 +9,12 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Accordion from 'react-bootstrap/Accordion';
 
-import {
-  FaUser, FaUserGraduate, FaThumbsUp, FaThumbsDown
-} from 'react-icons/fa';
+import { FaUser, FaUserGraduate } from 'react-icons/fa';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 
-import StarRatings from './StarRatings';
-import ProvenBadge from './ProvenBadge';
+import ReviewCardReacts from './ReviewCardReacts';
+import StarRatings from '../shared/StarRatings';
+import ProvenBadge from '../shared/ProvenBadge';
 
 export default function ReviewCard(props) {
   const [commentsOpen, setCommentsOpen] = useState(false);
@@ -56,21 +55,6 @@ export default function ReviewCard(props) {
       </Col>
     ));
 
-  const renderReviewReacts = () => (
-    <div className="ReviewCard-review-react">
-      <div className="ReviewCard-review-react-likes">
-        <FaThumbsUp />
-        {' '}
-        {numLikes}
-      </div>
-      <div className="ReviewCard-review-react-dislikes">
-        <FaThumbsDown />
-        {' '}
-        {numDislikes}
-      </div>
-    </div>
-  );
-
   const renderComments = () => (
     <>
       <Accordion.Toggle
@@ -100,7 +84,7 @@ export default function ReviewCard(props) {
       <p className="ReviewCard-review-body">
         {review}
       </p>
-      {renderReviewReacts()}
+      <ReviewCardReacts initialLikes={numLikes} initialDislikes={numDislikes} />
       {renderComments()}
     </Col>
   );

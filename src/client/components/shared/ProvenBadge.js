@@ -5,7 +5,7 @@ import Modal from 'react-bootstrap/Modal';
 
 import { MdVerifiedUser } from 'react-icons/md';
 
-export default function ReviewCard() {
+export default function ProvenBadge() {
   const [show, setShow] = useState(false);
 
   const renderBadgeModal = () => (

@@ -254,16 +254,22 @@ nav .SchoolProven-logo {
   margin: 12px 0 48px 0;
 }
 
-.ReviewCard-review-react {
+.ReviewCard-review-reacts {
   display: flex;
 }
 
-.ReviewCard-review-react-likes {
+.ReviewCard-review-react {
+  cursor: pointer;
+  font-size: large;
   margin: 0 6px;
 }
 
-.ReviewCard-review-react-dislikes {
-  margin: 0 6px;
+.Like {
+  color: green;
+}
+
+.Dislike {
+  color: #900;
 }
 
 .ReviewCard-reviewer-info .card-subtitle {

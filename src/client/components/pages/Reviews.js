@@ -15,7 +15,7 @@ import ReviewPageHeader from '../reviews/ReviewPageHeader';
 import StarRatings from '../shared/StarRatings';
 import ClassStats from '../reviews/ClassStats';
 import ReviewBreakdown from '../reviews/ReviewBreakdown';
-import ReviewCard from '../shared/ReviewCard';
+import ReviewCard from '../reviews/ReviewCard';
 import SearchBar from '../shared/SearchBar';
 import NoResultsCard from '../shared/NoResultsCard';
 
