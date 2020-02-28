@@ -114,7 +114,7 @@ export default function Reviews() {
         </div>
         {renderReviews()}
         <Link to={`/write/${classId}`}>
-          <Button block>Write a Review</Button>
+          <Button size="lg" block>Write a Review</Button>
         </Link>
         <br />
       </Container>
