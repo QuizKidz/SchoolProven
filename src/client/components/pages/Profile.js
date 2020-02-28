@@ -73,7 +73,7 @@ export default function Profile() {
 
   const renderEndorsements = () => (
     <Card className={`Profile-info-card ${experimentClassName}`}>
-      <Card.Header as="h4" className="Profile-endorsements-header">
+      <Card.Header as="h4" className="Profile-endorsements">
         Endorsements
         {renderEndorsementButton()}
       </Card.Header>
