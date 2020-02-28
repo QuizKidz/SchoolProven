@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react';
-import PropTypes from 'prop-types';
 
 import { Redirect, useParams } from 'react-router-dom';
 
@@ -17,17 +16,20 @@ import ProvenBadge from '../shared/ProvenBadge';
 import EndorsementsModal from '../modals/EndorsementsModal';
 
 import UserContext from '../../utils/UserContext';
+import useQuery from '../../utils/useQuery';
 
 import users from '../../data/users.json';
 
-export default function Profile(props) {
+export default function Profile() {
   const { userId } = useParams();
   const loggedInUser = useContext(UserContext);
   const profileUser = userId ? users[userId] : loggedInUser;
 
   const [showEndorseModal, setShowEndorseModal] = useState(false);
 
-  const { isExperiment } = props;
+  const query = useQuery();
+  const variant = query.get('variant');
+  const isExperiment = variant ? variant === 'experiment' : false;
 
   const isProfileUserLoggedIn = () => loggedInUser && profileUser.id === loggedInUser.id;
 
@@ -110,11 +112,3 @@ export default function Profile(props) {
 
   return profileUser ? renderProfilePage() : <Redirect to="/" />;
 }
-
-Profile.propTypes = {
-  isExperiment: PropTypes.bool,
-};
-
-Profile.defaultProps = {
-  isExperiment: false,
-};
