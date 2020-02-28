@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState } from 'react';
 
 import { Redirect, useParams } from 'react-router-dom';
 
@@ -26,9 +26,6 @@ export default function Profile() {
   const profileUser = userId ? users[userId] : loggedInUser;
 
   const [showEndorseModal, setShowEndorseModal] = useState(false);
-
-  // eslint-disable-next-line no-undef
-  useEffect(() => ga('require', 'GTM-P66PXJ6'), []);
 
   const query = useQuery();
   const variant = query.get('variant');
