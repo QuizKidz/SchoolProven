@@ -8,19 +8,16 @@ import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Accordion from 'react-bootstrap/Accordion';
-import Badge from 'react-bootstrap/Badge';
-import Modal from 'react-bootstrap/Modal';
 
 import {
   FaUser, FaUserGraduate, FaThumbsUp, FaThumbsDown
 } from 'react-icons/fa';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
-import { MdVerifiedUser } from 'react-icons/md';
 
 import StarRatings from './StarRatings';
+import ProvenBadge from './ProvenBadge';
 
 export default function ReviewCard(props) {
-  const [show, setShow] = useState(false);
   const [commentsOpen, setCommentsOpen] = useState(false);
 
   const {
@@ -54,11 +51,7 @@ export default function ReviewCard(props) {
           </Row>
         </Link>
         <Row className="ReviewCard-reviewer-badge">
-          <Badge pill variant="success" onClick={() => setShow(true)}>
-            <MdVerifiedUser />
-            {' '}
-            Proven
-          </Badge>
+          <ProvenBadge />
         </Row>
       </Col>
     ));
@@ -112,19 +105,6 @@ export default function ReviewCard(props) {
     </Col>
   );
 
-  const handleClose = () => { setShow(false); };
-
-  const renderBadgeModal = () => (
-    <Modal show={show} onHide={handleClose} centered>
-      <Modal.Header closeButton>
-      </Modal.Header>
-      <Modal.Body>
-        This badge indicates that this review was submitted
-        by a user with a verified university email.
-      </Modal.Body>
-    </Modal>
-  );
-
   return (
     <>
       <Accordion className="ReviewCard">
@@ -137,7 +117,6 @@ export default function ReviewCard(props) {
           </Card.Body>
         </Card>
       </Accordion>
-      {renderBadgeModal()}
     </>
   );
 }

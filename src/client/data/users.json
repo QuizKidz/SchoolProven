@@ -6,6 +6,12 @@
     "major": "Cognitive Science",
     "year": "3rd",
     "classesTaken": ["DSGN 1", "COGS 1", "COGS 120"],
+    "endorsements": [
+      {"message": "You write helpful reviews!", "count": 3},
+      {"message": "You are a friendly reviewer!", "count": 1},
+      {"message": "Your reviews are well received!", "count": 2},
+      {"message": "You respond in a timely manner!", "count": 1}
+    ],
     "numReviews": 12
   },
   {
@@ -15,6 +21,10 @@
     "major": "Computer Science",
     "year": "4th",
     "classesTaken": ["CSE 8A", "CSE 8B", "CSE 100", "COGS 120"],
+    "endorsements": [
+      {"message": "You write helpful reviews!", "count": 2},
+      {"message": "You are a friendly reviewer!", "count": 1}
+    ],
     "numReviews": 6
   }
 ]

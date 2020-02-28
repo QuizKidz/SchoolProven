@@ -64,6 +64,11 @@ nav .SchoolProven-logo {
   border-color: #0d6335;
 }
 
+.list-group-item.active {
+  background-color: #0d6335;
+  border-color: #0d6335;
+}
+
 .BackButton {
   color: black;
   font-size: x-large;
@@ -116,12 +121,18 @@ nav .SchoolProven-logo {
 }
 
 .Profile-card {
-  margin: 24px auto 48px auto;
   align-items: center;
+  margin: 24px auto 48px auto;
+  padding: 12px;
 }
 
 .Profile-info-card {
   margin: 24px auto;
+}
+
+.Profile-endorsements {
+  display: flex;
+  justify-content: space-between;
 }
 
 .SearchBar {
