@@ -129,7 +129,11 @@ nav .SchoolProven-logo {
   margin: 24px auto;
 }
 
-.Profile-endorsements {
+.hidden {
+  display: none;
+}
+
+.Profile-endorsements-header {
   display: flex;
   justify-content: space-between;
 }

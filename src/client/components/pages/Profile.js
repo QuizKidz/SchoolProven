@@ -30,6 +30,7 @@ export default function Profile() {
   const query = useQuery();
   const variant = query.get('variant');
   const isExperiment = variant ? variant === 'experiment' : false;
+  const experimentClassName = isExperiment ? '' : 'hidden';
 
   const isProfileUserLoggedIn = () => loggedInUser && profileUser.id === loggedInUser.id;
 
@@ -71,8 +72,8 @@ export default function Profile() {
   );
 
   const renderEndorsements = () => (
-    <Card className="Profile-info-card">
-      <Card.Header as="h4" className="Profile-endorsements">
+    <Card className={`Profile-info-card ${experimentClassName}`}>
+      <Card.Header as="h4" className="Profile-endorsements-header">
         Endorsements
         {renderEndorsementButton()}
       </Card.Header>
@@ -96,7 +97,7 @@ export default function Profile() {
       <Container className="Profile">
         <BackButton />
         {renderProfileCard()}
-        {isExperiment ? renderEndorsements() : null}
+        {renderEndorsements()}
         {renderProfileInfoCard('Major', profileUser.major)}
         {renderProfileInfoCard('Year', profileUser.year)}
         {renderClassesTaken()}
