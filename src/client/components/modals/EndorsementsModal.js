@@ -21,11 +21,19 @@ export default function EndorsementsModal(props) {
   } = props;
 
   const [activeKey, setActiveKey] = useState('');
+  const [validated, setValidated] = useState(false);
+  const [invalidSubmit, setInvalidSumbit] = useState(false);
 
   const user = users[userId];
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!validated) {
+      setInvalidSumbit(true);
+      return;
+    }
+
     const { endorsements } = user;
 
     let isNewEndorsement = true;
@@ -46,10 +54,18 @@ export default function EndorsementsModal(props) {
     users[userId].endorsements = updatedEndorsements;
     setActiveKey('');
     onHide();
+
+    // eslint-disable-next-line no-undef
+    ga('send', 'event', 'endorse', 'add');
+  };
+
+  const handleEndorsementClick = messageKey => () => {
+    setActiveKey(messageKey);
+    setValidated(true);
   };
 
   const renderEndorseForm = () => (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} validated={validated}>
       <ListGroup variant="flush" activeKey={activeKey}>
         {Object.keys(endorsementMessages).map(messageKey => (
           <ListGroup.Item
@@ -57,13 +73,19 @@ export default function EndorsementsModal(props) {
             type="button"
             key={messageKey}
             eventKey={messageKey}
-            onClick={() => setActiveKey(messageKey)}
+            onClick={handleEndorsementClick(messageKey)}
           >
             {endorsementMessages[messageKey]}
           </ListGroup.Item>
         ))}
       </ListGroup>
       <Modal.Body>
+        {invalidSubmit ? (
+          <>
+            <h6 className="InvalidMessage">Please choose an endorsement</h6>
+            <br />
+          </>
+        ) : null}
         <Button block type="submit">Endorse!</Button>
       </Modal.Body>
     </Form>

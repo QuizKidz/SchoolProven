@@ -59,7 +59,7 @@ export default function Login(props) {
           />
         </Col>
       </Form.Group>
-      {invalidLogin ? <h6 className="InvlaidLogin">Invalid email or password.</h6> : null}
+      {invalidLogin ? <h6 className="InvalidMessage">Invalid email or password.</h6> : null}
       <br />
       <Button type="submit" size="lg" block>Log in</Button>
     </Form>
