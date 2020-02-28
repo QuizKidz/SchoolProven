@@ -114,7 +114,7 @@ export default function WriteReview() {
     <>
       <NavBar />
       <Container className="WriteReview">
-        <BackButton to="/write" />
+        <BackButton />
         {renderHeaders()}
 
         <Form onSubmit={handleSubmit}>

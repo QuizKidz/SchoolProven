@@ -1,19 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-import { Link } from 'react-router-dom';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 
-export default function BackButton(props) {
-  const { to } = props;
-
+export default function BackButton() {
   return (
-    <Link to={to} className="BackButton">
-      <IoMdArrowRoundBack />
-    </Link>
+    // eslint-disable-next-line no-restricted-globals
+    <IoMdArrowRoundBack onClick={() => history.back()} className="BackButton" />
   );
 }
-
-BackButton.propTypes = {
-  to: PropTypes.string.isRequired,
-};

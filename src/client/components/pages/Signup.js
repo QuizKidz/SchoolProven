@@ -142,7 +142,7 @@ export default function Signup(props) {
     <div className="Signup">
       <NavBar />
       <Container>
-        <BackButton to="/" />
+        <BackButton />
         <br />
         <br />
         <h1>

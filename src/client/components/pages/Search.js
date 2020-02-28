@@ -36,7 +36,7 @@ export default function Search(props) {
     <>
       <NavBar />
       <Container className="Search">
-        <BackButton to="/" />
+        <BackButton />
         <SearchBar placeholder={placeholder} onInput={handleSearchInput} />
         <div className="Search-results">
           {searchResults.length > 0

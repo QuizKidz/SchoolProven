@@ -94,7 +94,7 @@ export default function Profile() {
     <>
       <NavBar />
       <Container className="Profile">
-        <BackButton to="/" />
+        <BackButton />
         {renderProfileCard()}
         {isExperiment ? renderEndorsements() : null}
         {renderProfileInfoCard('Major', profileUser.major)}

@@ -178,7 +178,7 @@ export default function Questions() {
     <>
       <NavBar />
       <Container className="Questions">
-        <BackButton to="/search" />
+        <BackButton />
         <br />
         {renderToggle()}
         {renderHeader()}

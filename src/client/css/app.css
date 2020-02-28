@@ -70,9 +70,8 @@ nav .SchoolProven-logo {
 }
 
 .BackButton {
-  color: black;
+  cursor: pointer;
   font-size: x-large;
-  text-decoration: none;
 }
 
 .Home .jumbotron {

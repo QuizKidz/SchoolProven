@@ -90,7 +90,7 @@ export default function Reviews() {
     <>
       <NavBar />
       <Container className="Reviews">
-        <BackButton to="/search" />
+        <BackButton />
         <br />
         {renderToggle()}
         <ReviewPageHeader
