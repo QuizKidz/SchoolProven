@@ -26,6 +26,12 @@ export default function EndorsementsModal(props) {
 
   const user = users[userId];
 
+  const handleClose = () => {
+    onHide();
+    setActiveKey('');
+    setInvalidSumbit(false);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -52,8 +58,7 @@ export default function EndorsementsModal(props) {
     }
 
     users[userId].endorsements = updatedEndorsements;
-    setActiveKey('');
-    onHide();
+    handleClose();
 
     // eslint-disable-next-line no-undef
     ga('send', 'event', 'endorse', 'add');
@@ -95,7 +100,7 @@ export default function EndorsementsModal(props) {
     <div className="EndorsementsModal">
       <Modal
         show={show}
-        onHide={onHide}
+        onHide={handleClose}
         size="lg"
         centered
       >
