@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 
 import { Link } from 'react-router-dom';
@@ -21,11 +21,6 @@ import UserContext from '../../utils/UserContext';
 import users from '../../data/users.json';
 
 export default function Home(props) {
-  useEffect(() => {
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ event: 'optimize.activate' });
-  }, []);
-
   const [loginShow, setLoginShow] = useState(false);
   const [showLoginToast, setShowLoginToast] = useState(false);
   const [showLogoutToast, setShowLogoutToast] = useState(false);

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactGA from 'react-ga';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/app.css';
@@ -17,6 +17,11 @@ import UserContext from './utils/UserContext';
 ReactGA.initialize('UA-159241456-1', { standardImplementation: true });
 
 export default function App() {
+  useEffect(() => {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'optimize.activate' });
+  });
+
   const [user, setUser] = useState(null);
 
   return (
