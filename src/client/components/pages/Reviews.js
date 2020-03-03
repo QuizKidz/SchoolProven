@@ -30,7 +30,6 @@ export default function Reviews() {
   useEffect(() => {
     window.scrollTo(0, 0);
     ReactGA.set({ page: '/reviews' });
-    ReactGA.pageview();
   }, []);
 
   const { classId } = useParams();

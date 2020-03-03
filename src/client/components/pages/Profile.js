@@ -24,7 +24,6 @@ import users from '../../data/users.json';
 export default function Profile() {
   useEffect(() => {
     ReactGA.set({ page: '/profile' });
-    ReactGA.pageview();
   }, []);
 
   const { userId } = useParams();

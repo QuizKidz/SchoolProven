@@ -28,7 +28,6 @@ import questions from '../../data/questions.json';
 export default function Questions() {
   useEffect(() => {
     ReactGA.set({ page: '/questions' });
-    ReactGA.pageview();
   }, []);
 
   const { classId } = useParams();
