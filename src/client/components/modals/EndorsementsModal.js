@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ReactGA from 'react-ga';
 import PropTypes from 'prop-types';
 
 import Modal from 'react-bootstrap/Modal';
@@ -60,8 +61,11 @@ export default function EndorsementsModal(props) {
     users[userId].endorsements = updatedEndorsements;
     handleClose();
 
-    // eslint-disable-next-line no-undef
-    ga('send', 'event', 'endorse', 'add');
+    ReactGA.event({
+      category: 'endorse',
+      action: 'add endorsement',
+      value: user.id
+    });
   };
 
   const handleEndorsementClick = messageKey => () => {

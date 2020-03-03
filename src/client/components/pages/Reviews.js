@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ReactGA from 'react-ga';
 
 import { Link, Redirect, useParams } from 'react-router-dom';
 
@@ -26,6 +27,12 @@ import classes from '../../data/classes.json';
 import users from '../../data/users.json';
 
 export default function Reviews() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    ReactGA.set({ page: '/reviews' });
+    ReactGA.pageview();
+  }, []);
+
   const { classId } = useParams();
   const currentClass = classes[classId];
   // eslint-disable-next-line eqeqeq
@@ -34,8 +41,6 @@ export default function Reviews() {
   const [searchResults, setSearchResults] = useState(reviewsForClass);
   const [noResults, setNoResults] = useState(false);
   const [isQuestionsActive, setQuestionsActive] = useState(false);
-
-  useEffect(() => window.scrollTo(0, 0), []);
 
   const {
     professorName,

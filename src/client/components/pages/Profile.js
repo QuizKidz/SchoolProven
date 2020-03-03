@@ -1,4 +1,5 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
+import ReactGA from 'react-ga';
 
 import { Redirect, useParams } from 'react-router-dom';
 
@@ -21,6 +22,11 @@ import useQuery from '../../utils/useQuery';
 import users from '../../data/users.json';
 
 export default function Profile() {
+  useEffect(() => {
+    ReactGA.set({ page: '/profile' });
+    ReactGA.pageview();
+  }, []);
+
   const { userId } = useParams();
   const loggedInUser = useContext(UserContext);
   const profileUser = userId ? users[userId] : loggedInUser;
@@ -60,8 +66,10 @@ export default function Profile() {
   };
 
   const handleEndorsementButtonClick = () => {
-    // eslint-disable-next-line no-undef
-    ga('send', 'event', 'endorse', 'click');
+    ReactGA.event({
+      category: 'endorse',
+      action: 'open modal'
+    });
     setShowEndorseModal(true);
   };
 

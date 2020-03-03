@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ReactGA from 'react-ga';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/app.css';
 
@@ -12,6 +13,8 @@ import WriteReview from './components/pages/WriteReview';
 import Profile from './components/pages/Profile';
 
 import UserContext from './utils/UserContext';
+
+ReactGA.initialize('UA-159241456-1', { standardImplementation: true });
 
 export default function App() {
   const [user, setUser] = useState(null);

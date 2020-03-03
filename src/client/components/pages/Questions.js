@@ -1,5 +1,6 @@
 /* eslint-disable react/no-array-index-key */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import ReactGA from 'react-ga';
 
 import { Redirect, useParams } from 'react-router-dom';
 
@@ -25,6 +26,11 @@ import handleSearch from '../../utils/handleSearch';
 import questions from '../../data/questions.json';
 
 export default function Questions() {
+  useEffect(() => {
+    ReactGA.set({ page: '/questions' });
+    ReactGA.pageview();
+  }, []);
+
   const { classId } = useParams();
   // eslint-disable-next-line eqeqeq
   const questionsForClass = questions.filter(question => question.classId == classId);
