@@ -17,7 +17,6 @@ import ProvenBadge from '../shared/ProvenBadge';
 import EndorsementsModal from '../modals/EndorsementsModal';
 
 import UserContext from '../../utils/UserContext';
-import useQuery from '../../utils/useQuery';
 
 import users from '../../data/users.json';
 
@@ -31,11 +30,6 @@ export default function Profile() {
   const profileUser = userId ? users[userId] : loggedInUser;
 
   const [showEndorseModal, setShowEndorseModal] = useState(false);
-
-  const query = useQuery();
-  const variant = query.get('variant');
-  const isExperiment = variant ? variant === 'experiment' : false;
-  const experimentClassName = isExperiment ? '' : 'hidden';
 
   const isProfileUserLoggedIn = () => loggedInUser && profileUser.id === loggedInUser.id;
 
@@ -78,22 +72,33 @@ export default function Profile() {
       : <Button onClick={handleEndorsementButtonClick}>+</Button>
   );
 
+  const renderEndorsementsContent = () => (
+    profileUser.endorsements.map((endorsement, i) => (
+      // eslint-disable-next-line react/no-array-index-key
+      <ListGroup.Item key={i} className="Profile-endorsements">
+        {endorsement.message}
+        <h5>
+          <Badge variant="secondary">{endorsement.count}</Badge>
+        </h5>
+      </ListGroup.Item>
+    ))
+  );
+
   const renderEndorsements = () => (
-    <Card className={`Profile-info-card ${experimentClassName}`}>
+    <Card className="Profile-info-card">
       <Card.Header as="h4" className="Profile-endorsements">
         Endorsements
         {renderEndorsementButton()}
       </Card.Header>
       <ListGroup variant="flush">
-        {profileUser.endorsements.map((endorsement, i) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <ListGroup.Item key={i} className="Profile-endorsements">
-            {endorsement.message}
-            <h5>
-              <Badge variant="secondary">{endorsement.count}</Badge>
-            </h5>
-          </ListGroup.Item>
-        ))}
+        {profileUser.endorsements && profileUser.endorsements.length > 0
+          ? renderEndorsementsContent()
+          : (
+            <ListGroup.Item className="Profile-endorsements">
+              <i>No endorsements yet.</i>
+            </ListGroup.Item>
+          )
+        }
       </ListGroup>
     </Card>
   );

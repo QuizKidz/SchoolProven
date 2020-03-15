@@ -35,7 +35,8 @@ export default function Signup(props) {
       password,
       major,
       year,
-      classesTaken: []
+      classesTaken: [],
+      endorsements: [],
     };
 
     setUser(newUser);
