@@ -16,7 +16,7 @@
     "@fortawesome/fontawesome-free": "^5.12.1",
     "babel-polyfill": "^6.26.0",
     "bootstrap": "^4.4.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-handlebars": "^3.1.0",
     "prop-types": "^15.7.2",
     "react": "^16.5.2",
